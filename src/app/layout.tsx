@@ -28,7 +28,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
           rel="stylesheet"
         />
       </head>
-      <body className="antialiased bg-[#08090B] text-white">
+      <body className="antialiased bg-[#080808] text-white">
         <StoreProvider>
           <StoreShell>{children}</StoreShell>
         </StoreProvider>

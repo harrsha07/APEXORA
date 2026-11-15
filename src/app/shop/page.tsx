@@ -50,24 +50,24 @@ export default function ShopPage() {
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Header Banner on Solid Dark Plate */}
-      <div className="bg-[#0D0F14] border border-[#222733] p-8 sm:p-10 mb-8 shadow-xl">
-        <div className="inline-flex items-center gap-2 bg-[#161A22] border border-[#2B303C] px-3.5 py-1.5 rounded-sm text-xs font-bold tracking-[2.5px] text-[#E2E4E9] uppercase mb-3">
+      <div className="bg-[#151515] border border-[#292929] p-8 sm:p-10 mb-8 shadow-xl">
+        <div className="inline-flex items-center gap-2 bg-[#111111] border border-[#292929] px-3.5 py-1.5 rounded-sm text-xs font-bold tracking-[2.5px] text-white uppercase mb-3">
           <Slashes size={18} className="text-[#E10600]" />
           <span>GARMENTS & PERFORMANCE APPAREL</span>
         </div>
         <h1 className="font-['Barlow_Condensed',sans-serif] font-black italic text-5xl sm:text-6xl text-white tracking-normal uppercase leading-[1.1]">
           SHOP ALL <span className="text-[#E10600]">PRODUCTS.</span>
         </h1>
-        <p className="text-xs text-[#9CA3AF] uppercase tracking-wider mt-2 font-medium">
+        <p className="text-xs text-[#858585] uppercase tracking-wider mt-2 font-medium">
           Showing {filteredProducts.length} of {activeProducts.length} race-ready streetwear garments
         </p>
       </div>
 
       {/* Filter & Sort Bar */}
-      <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 bg-[#0D0F14] border border-[#222733] p-4 mb-8">
+      <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 bg-[#151515] border border-[#292929] p-4 mb-8">
         {/* Category Tabs */}
         <div className="flex flex-wrap items-center gap-2">
-          <span className="text-[10px] font-bold text-[#9CA3AF] uppercase tracking-wider mr-1">CATEGORY:</span>
+          <span className="text-[10px] font-bold text-[#858585] uppercase tracking-wider mr-1">CATEGORY:</span>
           {categories.map(cat => (
             <button
               key={cat}
@@ -75,7 +75,7 @@ export default function ShopPage() {
               className={`px-3 py-1.5 text-xs font-bold tracking-wider uppercase border transition-colors ${
                 selectedCategory === cat
                   ? 'bg-[#E10600] border-[#E10600] text-white shadow-md'
-                  : 'bg-[#14171E] border-[#252A36] text-[#D1D5DB] hover:text-white hover:border-[#E10600]'
+                  : 'bg-[#111111] border-[#292929] text-[#B8B8B8] hover:text-white hover:border-[#E10600]'
               }`}
             >
               {cat}
@@ -92,16 +92,16 @@ export default function ShopPage() {
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
               placeholder="FILTER BY NAME..."
-              className="w-full bg-[#14171E] border border-[#252A36] text-white text-xs px-3 py-2 pl-8 outline-none uppercase tracking-wider"
+              className="w-full bg-[#111111] border border-[#292929] text-white text-xs px-3 py-2 pl-8 outline-none uppercase tracking-wider placeholder-[#858585]"
             />
-            <SearchIcon size={14} className="absolute left-2.5 top-2.5 text-[#9CA3AF]" />
+            <SearchIcon size={14} className="absolute left-2.5 top-2.5 text-[#858585]" />
           </div>
 
           {/* Sort dropdown */}
           <select
             value={sortBy}
             onChange={e => setSortBy(e.target.value)}
-            className="bg-[#14171E] border border-[#252A36] text-white text-xs px-3 py-2 outline-none uppercase tracking-wider cursor-pointer"
+            className="bg-[#111111] border border-[#292929] text-white text-xs px-3 py-2 outline-none uppercase tracking-wider cursor-pointer"
           >
             <option value="featured">FEATURED</option>
             <option value="newest">NEWEST</option>

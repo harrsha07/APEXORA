@@ -20,9 +20,9 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
     : null;
 
   return (
-    <article className="group flex flex-col bg-[#0D0F14] border border-[#222733] hover:border-[#E10600] transition-all duration-300 shadow-xl overflow-hidden">
-      {/* Image Container with Solid Charcoal Background */}
-      <div className="relative aspect-[4/3] bg-[#13161C] overflow-hidden border-b border-[#222733] flex items-center justify-center">
+    <article className="group flex flex-col bg-[#151515] border border-[#292929] hover:border-[#E10600] transition-all duration-300 shadow-xl overflow-hidden">
+      {/* Image Container with Solid Dark Background */}
+      <div className="relative aspect-[4/3] bg-[#111111] overflow-hidden border-b border-[#292929] flex items-center justify-center">
         {/* Red Tag / Category badge - Prominent Solid Bar */}
         {product.tag && (
           <span className="absolute top-3 left-3 z-10 bg-[#E10600] text-white text-[10px] font-black tracking-widest px-3 py-1 uppercase shadow-md select-none">
@@ -32,7 +32,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
 
         {/* Exclusive / Sale badge */}
         {product.badge && (
-          <span className="absolute top-3 right-3 z-10 bg-[#1A1E26]/95 border border-white/10 text-white text-[8px] font-bold tracking-wider px-2 py-0.5 uppercase backdrop-blur-sm select-none">
+          <span className="absolute top-3 right-3 z-10 bg-[#151515] border border-[#292929] text-white text-[8px] font-bold tracking-wider px-2 py-0.5 uppercase select-none">
             {product.badge}
           </span>
         )}
@@ -53,7 +53,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
         {/* Quick View Pill */}
         <button
           onClick={() => setQuickViewProduct(product)}
-          className="absolute bottom-3 right-3 z-10 bg-[#08090B]/90 hover:bg-[#E10600] text-white text-[9px] font-bold tracking-wider px-2.5 py-1.5 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-all uppercase backdrop-blur-sm"
+          className="absolute bottom-3 right-3 z-10 bg-[#080808]/90 hover:bg-[#E10600] text-white text-[9px] font-bold tracking-wider px-2.5 py-1.5 flex items-center gap-1 opacity-0 group-hover:opacity-100 transition-all uppercase"
           aria-label={`Quick view ${product.name}`}
         >
           <span>QUICK VIEW</span>
@@ -62,7 +62,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
       </div>
 
       {/* Info Container on Solid Background */}
-      <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between bg-[#0D0F14]">
+      <div className="p-5 sm:p-6 flex-1 flex flex-col justify-between bg-[#151515]">
         <div>
           <div className="flex items-center justify-between text-[10px] font-bold tracking-[2px] text-[#E10600] uppercase mb-1.5">
             <span>0{index + 1} / APEXORA DROP 001</span>
@@ -80,25 +80,25 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
             </h3>
           </Link>
 
-          <p className="text-xs text-[#9CA3AF] line-clamp-1 mt-1 font-normal">
+          <p className="text-xs text-[#B8B8B8] line-clamp-1 mt-1 font-normal">
             {product.subtitle}
           </p>
 
           <div className="mt-3">
-            <span className="text-[10px] font-bold text-[#A5A8AF] tracking-widest uppercase bg-[#14171E] border border-[#222733] px-2.5 py-1 inline-block">
+            <span className="text-[10px] font-bold text-[#B8B8B8] tracking-widest uppercase bg-[#111111] border border-[#292929] px-2.5 py-1 inline-block">
               COLOUR · <strong className="text-white font-bold">{product.color.toUpperCase()}</strong>
             </span>
           </div>
         </div>
 
         {/* Price & Actions */}
-        <div className="mt-6 pt-4 border-t border-[#1E222D]">
+        <div className="mt-6 pt-4 border-t border-[#292929]">
           <div className="flex items-baseline gap-2 mb-3">
             <span className="font-['Barlow_Condensed',sans-serif] font-black italic text-2xl sm:text-3xl text-white">
               {formattedPrice}
             </span>
             {formattedComparePrice && (
-              <span className="text-xs text-[#7E8491] line-through">
+              <span className="text-xs text-[#858585] line-through">
                 {formattedComparePrice}
               </span>
             )}
@@ -107,7 +107,7 @@ export default function ProductCard({ product, index = 0 }: ProductCardProps) {
           <div className="grid grid-cols-2 gap-2">
             <Link
               href={`/product/${product.id}`}
-              className="py-3 px-3 border border-[#2B303C] hover:border-white bg-[#14171E] text-center text-white text-[10px] font-black tracking-widest uppercase transition-colors"
+              className="py-3 px-3 border border-[#292929] hover:border-white bg-[#111111] text-center text-white text-[10px] font-black tracking-widest uppercase transition-colors"
             >
               VIEW DETAILS
             </Link>

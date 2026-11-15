@@ -52,17 +52,17 @@ export default function CartDrawer() {
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-hidden">
+    <div className="fixed inset-0 z-90 overflow-hidden">
       {/* Backdrop */}
       <div
-        className="absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity"
+        className="absolute inset-0 bg-black/85 backdrop-blur-sm transition-opacity"
         onClick={() => setCartDrawerOpen(false)}
       />
 
       <div className="fixed inset-y-0 right-0 max-w-full flex pl-10">
-        <aside className="w-screen max-w-md bg-[#101216] border-l border-[#252930] flex flex-col shadow-2xl animate-in slide-in-from-right duration-250">
+        <aside className="w-screen max-w-md bg-[#111111] border-l border-[#292929] flex flex-col shadow-2xl animate-in slide-in-from-right duration-250">
           {/* Header */}
-          <div className="p-6 border-b border-[#252930] flex items-center justify-between">
+          <div className="p-6 border-b border-[#292929] flex items-center justify-between bg-[#111111]">
             <div>
               <p className="text-[10px] font-bold tracking-[2.5px] uppercase text-[#E10600]">
                 APEXORA / YOUR SELECTION
@@ -73,7 +73,7 @@ export default function CartDrawer() {
             </div>
             <button
               onClick={() => setCartDrawerOpen(false)}
-              className="p-2 text-[#8E939C] hover:text-white transition-colors"
+              className="p-2 text-[#858585] hover:text-white transition-colors"
               aria-label="Close bag"
             >
               <CloseIcon size={22} />
@@ -81,7 +81,7 @@ export default function CartDrawer() {
           </div>
 
           {/* Free Shipping Meter */}
-          <div className="bg-[#15181E] px-6 py-3 border-b border-[#252930]">
+          <div className="bg-[#151515] px-6 py-3 border-b border-[#292929]">
             <div className="flex items-center justify-between text-xs mb-1.5">
               <span className="flex items-center gap-1.5 text-white font-medium text-[11px] tracking-wider uppercase">
                 <TruckIcon size={14} className="text-[#E10600]" />
@@ -93,9 +93,9 @@ export default function CartDrawer() {
                   </span>
                 )}
               </span>
-              <span className="text-[10px] font-bold text-[#8E939C]">{progressPercent}%</span>
+              <span className="text-[10px] font-bold text-[#858585]">{progressPercent}%</span>
             </div>
-            <div className="w-full h-1.5 bg-[#252930] overflow-hidden rounded-full">
+            <div className="w-full h-1.5 bg-[#292929] overflow-hidden rounded-full">
               <div
                 className="h-full bg-[#E10600] transition-all duration-300"
                 style={{ width: `${progressPercent}%` }}
@@ -104,14 +104,14 @@ export default function CartDrawer() {
           </div>
 
           {/* Cart Items List */}
-          <div className="flex-1 overflow-y-auto p-6 space-y-4 divide-y divide-[#1D2128]">
+          <div className="flex-1 overflow-y-auto p-6 space-y-4 divide-y divide-[#292929] bg-[#111111]">
             {cart.length === 0 ? (
               <div className="py-20 text-center flex flex-col items-center justify-center space-y-4">
                 <Slashes size={44} className="text-[#E10600]" />
                 <h3 className="font-['Barlow_Condensed',sans-serif] font-black italic text-2xl text-white tracking-wide uppercase">
                   YOUR BAG IS EMPTY
                 </h3>
-                <p className="text-xs text-[#8E939C] max-w-xs">
+                <p className="text-xs text-[#858585] max-w-xs">
                   Your garage is empty. Head to Drop 001 and select your race garment.
                 </p>
                 <button
@@ -119,7 +119,7 @@ export default function CartDrawer() {
                     setCartDrawerOpen(false);
                     router.push('/drop-001');
                   }}
-                  className="px-6 py-3 bg-[#E10600] hover:bg-[#ff1e17] text-white text-xs font-black tracking-widest uppercase transition-colors"
+                  className="px-6 py-3 bg-[#E10600] hover:bg-[#FF1E17] text-white text-xs font-black tracking-widest uppercase transition-colors"
                 >
                   EXPLORE DROP 001 ↗
                 </button>
@@ -127,7 +127,7 @@ export default function CartDrawer() {
             ) : (
               cart.map(item => (
                 <div key={item.key} className="pt-4 first:pt-0 flex gap-4">
-                  <div className="w-20 h-24 bg-[#181B22] border border-[#2B2F38] flex-shrink-0 overflow-hidden relative">
+                  <div className="w-20 h-24 bg-[#151515] border border-[#292929] flex-shrink-0 overflow-hidden relative">
                     <img
                       src={item.image}
                       alt={item.name}
@@ -188,14 +188,14 @@ export default function CartDrawer() {
 
           {/* Footer & Checkout Area */}
           {cart.length > 0 && (
-            <div className="p-6 border-t border-[#252930] bg-[#0D0F13] space-y-4">
+            <div className="p-6 border-t border-[#292929] bg-[#111111] space-y-4">
               {/* Promo code */}
               {appliedDiscount ? (
-                <div className="flex items-center justify-between bg-[#151922] border border-[#E10600]/40 px-3 py-2 text-xs">
+                <div className="flex items-center justify-between bg-[#151515] border border-[#E10600]/40 px-3 py-2 text-xs">
                   <div className="flex items-center gap-2 text-white">
                     <TagIcon size={14} className="text-[#E10600]" />
                     <span className="font-bold tracking-wider">{appliedDiscount.code}</span>
-                    <span className="text-[#8E939C]">(-₹{discountAmount.toLocaleString('en-IN')})</span>
+                    <span className="text-[#858585]">(-₹{discountAmount.toLocaleString('en-IN')})</span>
                   </div>
                   <button
                     onClick={removeCoupon}
@@ -215,12 +215,12 @@ export default function CartDrawer() {
                         setCouponError('');
                       }}
                       placeholder="DISCOUNT CODE (e.g. APEX10)"
-                      className="w-full bg-[#15181E] border border-[#2B2F38] focus:border-[#E10600] text-white text-xs px-3 py-2 outline-none uppercase tracking-wider"
+                      className="w-full bg-[#151515] border border-[#292929] focus:border-[#E10600] text-white text-xs px-3 py-2 outline-none uppercase tracking-wider"
                     />
                   </div>
                   <button
                     type="submit"
-                    className="px-4 bg-[#252930] hover:bg-[#30353E] text-white text-xs font-bold uppercase tracking-wider transition-colors"
+                    className="px-4 bg-[#151515] hover:bg-[#292929] border border-[#292929] text-white text-xs font-bold uppercase tracking-wider transition-colors"
                   >
                     APPLY
                   </button>
@@ -232,7 +232,7 @@ export default function CartDrawer() {
               )}
 
               {/* Subtotal breakdown */}
-              <div className="space-y-1.5 text-xs tracking-wider uppercase text-[#8E939C]">
+              <div className="space-y-1.5 text-xs tracking-wider uppercase text-[#858585]">
                 <div className="flex justify-between">
                   <span>Subtotal</span>
                   <span className="text-white font-medium">₹{cartSubtotal.toLocaleString('en-IN')}</span>
@@ -253,7 +253,7 @@ export default function CartDrawer() {
                     )}
                   </span>
                 </div>
-                <div className="flex justify-between text-base font-black text-white pt-2 border-t border-[#252930]">
+                <div className="flex justify-between text-base font-black text-white pt-2 border-t border-[#292929]">
                   <span className="font-['Barlow_Condensed',sans-serif] italic tracking-wide">ESTIMATED TOTAL</span>
                   <span className="font-['Barlow_Condensed',sans-serif] text-xl text-[#E10600]">
                     ₹{cartTotal.toLocaleString('en-IN')}
@@ -265,9 +265,9 @@ export default function CartDrawer() {
               <div className="space-y-2 pt-2">
                 <button
                   onClick={handleCheckout}
-                  className="w-full py-3.5 bg-[#E10600] hover:bg-[#ff1e17] text-white text-xs font-black tracking-[2px] uppercase flex items-center justify-center gap-2 transition-transform active:scale-[0.99]"
+                  className="w-full py-3.5 bg-[#E10600] hover:bg-[#FF1E17] text-white text-xs font-black tracking-[2px] uppercase flex items-center justify-center gap-2 transition-transform active:scale-[0.99] shadow-lg shadow-[#E10600]/25"
                 >
-                  <span>PROCEED TO CHECKOUT</span>
+                  <span>PROCEED TO CHECKOUT ↗</span>
                   <ArrowRightIcon size={16} />
                 </button>
                 <button

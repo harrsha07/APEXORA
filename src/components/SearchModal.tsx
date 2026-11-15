@@ -27,16 +27,16 @@ export default function SearchModal() {
   if (!searchModalOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto p-4 sm:p-6 md:p-20 flex justify-center">
+    <div className="fixed inset-0 z-80 overflow-y-auto p-4 sm:p-6 md:p-20 flex justify-center">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-black/85 backdrop-blur-md transition-opacity"
         onClick={() => setSearchModalOpen(false)}
       />
 
-      <div className="relative bg-[#111418] border border-[#2B2F38] text-white w-full max-w-2xl max-h-[80vh] overflow-hidden shadow-2xl z-10 flex flex-col">
+      <div className="relative bg-[#111111] border border-[#292929] text-white w-full max-w-2xl max-h-[80vh] overflow-hidden shadow-2xl z-10 flex flex-col">
         {/* Search Input Box */}
-        <div className="p-4 sm:p-6 border-b border-[#252930] flex items-center gap-3 bg-[#15181E]">
+        <div className="p-4 sm:p-6 border-b border-[#292929] flex items-center gap-3 bg-[#151515]">
           <SearchIcon size={20} className="text-[#E10600] flex-shrink-0" />
           <input
             type="text"
@@ -44,19 +44,19 @@ export default function SearchModal() {
             onChange={e => setQuery(e.target.value)}
             placeholder="SEARCH PRODUCTS, SERIES, COLOURS..."
             autoFocus
-            className="w-full bg-transparent text-white placeholder-[#686D77] text-sm md:text-base font-bold tracking-wider uppercase outline-none"
+            className="w-full bg-transparent text-white placeholder-[#858585] text-sm md:text-base font-bold tracking-wider uppercase outline-none"
           />
           {query && (
             <button
               onClick={() => setQuery('')}
-              className="text-[#8E939C] hover:text-white p-1"
+              className="text-[#858585] hover:text-white p-1"
             >
               <CloseIcon size={16} />
             </button>
           )}
           <button
             onClick={() => setSearchModalOpen(false)}
-            className="text-xs uppercase font-bold text-[#8E939C] hover:text-[#E10600] pl-2 border-l border-[#2B2F38]"
+            className="text-xs uppercase font-bold text-[#858585] hover:text-[#E10600] pl-2 border-l border-[#292929]"
           >
             ESC
           </button>
@@ -64,8 +64,8 @@ export default function SearchModal() {
 
         {/* Quick Tags when empty */}
         {!query && (
-          <div className="p-6">
-            <p className="text-[10px] font-bold tracking-[2px] text-[#8E939C] uppercase mb-3">
+          <div className="p-6 bg-[#111111]">
+            <p className="text-[10px] font-bold tracking-[2px] text-[#858585] uppercase mb-3">
               POPULAR SEARCHES
             </p>
             <div className="flex flex-wrap gap-2">
@@ -74,7 +74,7 @@ export default function SearchModal() {
                   <button
                     key={tag}
                     onClick={() => setQuery(tag)}
-                    className="px-3 py-1.5 text-xs font-bold tracking-wider uppercase bg-[#181B22] border border-[#2B2F38] hover:border-[#E10600] hover:text-[#E10600] transition-colors"
+                    className="px-3 py-1.5 text-xs font-bold tracking-wider uppercase bg-[#151515] border border-[#292929] hover:border-[#E10600] hover:text-[#E10600] text-white transition-colors"
                   >
                     {tag}
                   </button>
@@ -86,10 +86,10 @@ export default function SearchModal() {
 
         {/* Search Results */}
         {query && (
-          <div className="flex-1 overflow-y-auto p-4 sm:p-6 divide-y divide-[#1F232B]">
+          <div className="flex-1 overflow-y-auto p-4 sm:p-6 divide-y divide-[#292929] bg-[#111111]">
             {filteredProducts.length === 0 ? (
-              <div className="py-12 text-center text-[#8E939C]">
-                <p className="text-sm font-bold uppercase tracking-wider">
+              <div className="py-12 text-center text-[#858585]">
+                <p className="text-sm font-bold uppercase tracking-wider text-white">
                   No products found for "{query}"
                 </p>
                 <p className="text-xs mt-1">

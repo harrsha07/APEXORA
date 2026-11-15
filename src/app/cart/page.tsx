@@ -76,9 +76,9 @@ export default function CartPage() {
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Header Banner on Solid Dark Plate */}
-      <div className="bg-[#0D0F14] border border-[#222733] p-6 sm:p-8 mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 shadow-xl">
+      <div className="bg-[#151515] border border-[#292929] p-6 sm:p-8 mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 shadow-xl">
         <div>
-          <div className="inline-flex items-center gap-2 bg-[#161A22] border border-[#2B303C] px-3 py-1 rounded-sm text-xs font-bold tracking-[2.5px] text-[#E2E4E9] uppercase mb-2">
+          <div className="inline-flex items-center gap-2 bg-[#111111] border border-[#292929] px-3 py-1 rounded-sm text-xs font-bold tracking-[2.5px] text-white uppercase mb-2">
             <Slashes size={18} className="text-[#E10600]" />
             <span>CONFIRM YOUR RACE SELECTION</span>
           </div>
@@ -88,7 +88,7 @@ export default function CartPage() {
         </div>
         <Link
           href="/shop"
-          className="inline-flex items-center gap-2 text-xs font-bold text-[#D1D5DB] hover:text-white uppercase tracking-wider transition-colors bg-[#14171E] border border-[#252A36] px-4 py-2"
+          className="inline-flex items-center gap-2 text-xs font-bold text-[#B8B8B8] hover:text-white uppercase tracking-wider transition-colors bg-[#111111] border border-[#292929] px-4 py-2"
         >
           <ArrowLeftIcon size={14} />
           <span>Continue Shopping</span>
@@ -96,7 +96,7 @@ export default function CartPage() {
       </div>
 
       {/* Free Shipping Alert Bar */}
-      <div className="bg-[#111418] border border-[#252930] p-4 mb-8">
+      <div className="bg-[#151515] border border-[#292929] p-4 mb-8">
         <div className="flex items-center justify-between text-xs mb-2">
           <span className="flex items-center gap-2 font-bold uppercase tracking-wider text-white">
             <TruckIcon size={16} className="text-[#E10600]" />
@@ -108,9 +108,9 @@ export default function CartPage() {
               </span>
             )}
           </span>
-          <span className="font-bold text-[#8E939C]">{progressPercent}%</span>
+          <span className="font-bold text-[#858585]">{progressPercent}%</span>
         </div>
-        <div className="w-full h-2 bg-[#252930] overflow-hidden rounded-full">
+        <div className="w-full h-2 bg-[#111111] overflow-hidden rounded-full">
           <div
             className="h-full bg-[#E10600] transition-all duration-300"
             style={{ width: `${progressPercent}%` }}
@@ -122,18 +122,18 @@ export default function CartPage() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
         {/* Cart Line Items (8 Cols) */}
         <div className="lg:col-span-8 space-y-4">
-          <div className="bg-[#111418] border border-[#252930] divide-y divide-[#1D2128]">
+          <div className="bg-[#151515] border border-[#292929] divide-y divide-[#292929]">
             {cart.map(item => (
               <div key={item.key} className="p-4 sm:p-6 flex flex-col sm:flex-row gap-4 sm:items-center justify-between">
                 <div className="flex gap-4 items-center">
-                  <div className="w-20 h-24 bg-[#181B22] border border-[#2B2F38] flex-shrink-0 p-1">
+                  <div className="w-20 h-24 bg-[#111111] border border-[#292929] flex-shrink-0 p-1">
                     <img src={item.image} alt={item.name} className="w-full h-full object-contain" />
                   </div>
                   <div>
                     <h3 className="font-['Barlow_Condensed',sans-serif] font-black italic text-2xl text-white uppercase leading-tight">
                       {item.name}
                     </h3>
-                    <p className="text-xs text-[#8E939C] uppercase tracking-wider mt-0.5">
+                    <p className="text-xs text-[#858585] uppercase tracking-wider mt-0.5">
                       COLOUR: <span className="text-white font-bold">{item.color}</span> · SIZE: <span className="text-white font-bold">{item.size}</span>
                     </p>
                     <p className="text-xs text-white font-bold mt-1 sm:hidden">
@@ -142,12 +142,12 @@ export default function CartPage() {
                   </div>
                 </div>
 
-                <div className="flex items-center justify-between sm:justify-end gap-6 pt-2 sm:pt-0 border-t sm:border-t-0 border-[#1C1F26]">
+                <div className="flex items-center justify-between sm:justify-end gap-6 pt-2 sm:pt-0 border-t sm:border-t-0 border-[#292929]">
                   {/* Quantity Stepper */}
-                  <div className="flex items-center border border-[#30353E] bg-[#15171C]">
+                  <div className="flex items-center border border-[#292929] bg-[#111111]">
                     <button
                       onClick={() => updateCartQuantity(item.key, -1)}
-                      className="w-8 h-8 flex items-center justify-center text-[#A5A8AF] hover:text-white"
+                      className="w-8 h-8 flex items-center justify-center text-[#B8B8B8] hover:text-white"
                       aria-label="Decrease quantity"
                     >
                       <MinusIcon size={12} />
@@ -157,7 +157,7 @@ export default function CartPage() {
                     </span>
                     <button
                       onClick={() => updateCartQuantity(item.key, 1)}
-                      className="w-8 h-8 flex items-center justify-center text-[#A5A8AF] hover:text-white"
+                      className="w-8 h-8 flex items-center justify-center text-[#B8B8B8] hover:text-white"
                       aria-label="Increase quantity"
                     >
                       <PlusIcon size={12} />
@@ -172,7 +172,7 @@ export default function CartPage() {
                   {/* Delete */}
                   <button
                     onClick={() => removeFromCart(item.key)}
-                    className="text-[#6F747F] hover:text-[#E10600] p-1.5 transition-colors"
+                    className="text-[#858585] hover:text-[#E10600] p-1.5 transition-colors"
                     aria-label="Remove item"
                   >
                     <TrashIcon size={16} />
@@ -182,7 +182,7 @@ export default function CartPage() {
             ))}
           </div>
 
-          <div className="flex items-center justify-between text-xs text-[#8E939C] pt-2">
+          <div className="flex items-center justify-between text-xs text-[#858585] pt-2">
             <span>Garments reserved for 30 minutes in active session</span>
             <button
               onClick={() => {
@@ -199,18 +199,18 @@ export default function CartPage() {
 
         {/* Summary Card (4 Cols) */}
         <div className="lg:col-span-4">
-          <div className="bg-[#111418] border border-[#252930] p-6 space-y-6 sticky top-28">
-            <h2 className="font-['Barlow_Condensed',sans-serif] font-black italic text-2xl text-white uppercase tracking-wider border-b border-[#252930] pb-3">
+          <div className="bg-[#151515] border border-[#292929] p-6 space-y-6 sticky top-28">
+            <h2 className="font-['Barlow_Condensed',sans-serif] font-black italic text-2xl text-white uppercase tracking-wider border-b border-[#292929] pb-3">
               ORDER SUMMARY
             </h2>
 
             {/* Promo Code Form */}
             {appliedDiscount ? (
-              <div className="flex items-center justify-between bg-[#151922] border border-[#E10600]/40 p-3 text-xs">
+              <div className="flex items-center justify-between bg-[#111111] border border-[#E10600]/40 p-3 text-xs">
                 <div className="flex items-center gap-2">
                   <TagIcon size={16} className="text-[#E10600]" />
                   <span className="font-bold text-white">{appliedDiscount.code}</span>
-                  <span className="text-[#8E939C]">(-₹{discountAmount.toLocaleString('en-IN')})</span>
+                  <span className="text-[#858585]">(-₹{discountAmount.toLocaleString('en-IN')})</span>
                 </div>
                 <button
                   onClick={removeCoupon}
@@ -230,11 +230,11 @@ export default function CartPage() {
                       setCouponError('');
                     }}
                     placeholder="PROMO CODE"
-                    className="flex-1 bg-[#15171C] border border-[#2B2F38] text-white text-xs px-3 py-2.5 outline-none uppercase tracking-wider"
+                    className="flex-1 bg-[#111111] border border-[#292929] text-white text-xs px-3 py-2.5 outline-none uppercase tracking-wider placeholder-[#858585]"
                   />
                   <button
                     type="submit"
-                    className="px-4 bg-[#252930] hover:bg-[#30353E] text-white text-xs font-bold uppercase tracking-wider transition-colors"
+                    className="px-4 bg-[#292929] hover:bg-[#383838] text-white text-xs font-bold uppercase tracking-wider transition-colors"
                   >
                     APPLY
                   </button>
@@ -244,7 +244,7 @@ export default function CartPage() {
             )}
 
             {/* Breakdown */}
-            <div className="space-y-2 text-xs uppercase tracking-wider text-[#8E939C] border-t border-[#1C1F26] pt-4">
+            <div className="space-y-2 text-xs uppercase tracking-wider text-[#858585] border-t border-[#292929] pt-4">
               <div className="flex justify-between">
                 <span>Subtotal ({cartCount} items)</span>
                 <span className="text-white font-bold">₹{cartSubtotal.toLocaleString('en-IN')}</span>
@@ -261,7 +261,7 @@ export default function CartPage() {
                   {shippingFee === 0 ? <span className="text-emerald-400">FREE</span> : `₹${shippingFee}`}
                 </span>
               </div>
-              <div className="flex justify-between text-lg font-black text-white pt-4 border-t border-[#252930]">
+              <div className="flex justify-between text-lg font-black text-white pt-4 border-t border-[#292929]">
                 <span className="font-['Barlow_Condensed',sans-serif] italic tracking-wide">TOTAL</span>
                 <span className="font-['Barlow_Condensed',sans-serif] text-2xl text-[#E10600]">
                   ₹{cartTotal.toLocaleString('en-IN')}
@@ -272,14 +272,14 @@ export default function CartPage() {
             {/* Checkout Button */}
             <button
               onClick={() => router.push('/checkout')}
-              className="w-full py-4 bg-[#E10600] hover:bg-[#ff1e17] text-white text-xs font-black tracking-[2px] uppercase flex items-center justify-center gap-2 shadow-xl shadow-[#E10600]/30 transition-transform active:scale-[0.99]"
+              className="w-full py-4 bg-[#E10600] hover:bg-[#FF1E17] text-white text-xs font-black tracking-[2px] uppercase flex items-center justify-center gap-2 shadow-xl shadow-[#E10600]/30 transition-transform active:scale-[0.99]"
             >
               <span>PROCEED TO CHECKOUT</span>
               <ArrowRightIcon size={16} />
             </button>
 
-            <div className="flex items-center justify-center gap-2 text-[10px] text-[#6F747F] uppercase tracking-wider">
-              <ShieldCheckIcon size={14} className="text-[#8E939C]" />
+            <div className="flex items-center justify-center gap-2 text-[10px] text-[#858585] uppercase tracking-wider">
+              <ShieldCheckIcon size={14} className="text-[#858585]" />
               <span>Razorpay Encrypted & Secure Checkout</span>
             </div>
           </div>

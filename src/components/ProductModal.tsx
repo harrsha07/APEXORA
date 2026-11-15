@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useStore } from '@/lib/store';
-import { CloseIcon, PlusIcon, MinusIcon, CheckIcon, ShieldCheckIcon, TruckIcon } from './icons';
+import { CloseIcon, PlusIcon, MinusIcon } from './icons';
 
 export default function ProductModal() {
   const { quickViewProduct, setQuickViewProduct, addToCart } = useStore();
@@ -24,7 +24,7 @@ export default function ProductModal() {
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-80 overflow-y-auto flex items-center justify-center p-4">
       {/* Backdrop */}
       <div
         className="fixed inset-0 bg-black/85 backdrop-blur-md transition-opacity"
@@ -32,18 +32,18 @@ export default function ProductModal() {
       />
 
       {/* Modal Dialog */}
-      <div className="relative bg-[#111418] border border-[#2B2F38] text-white w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl z-10 grid grid-cols-1 md:grid-cols-2">
+      <div className="relative bg-[#111111] border border-[#292929] text-white w-full max-w-4xl max-h-[90vh] overflow-y-auto shadow-2xl z-10 grid grid-cols-1 md:grid-cols-2">
         {/* Close Button */}
         <button
           onClick={() => setQuickViewProduct(null)}
-          className="absolute top-4 right-4 z-20 p-2 text-[#8E939C] hover:text-white bg-[#0A0C0E]/70 rounded-full transition-colors"
+          className="absolute top-4 right-4 z-20 p-2 text-[#858585] hover:text-white bg-[#080808]/80 rounded-full transition-colors"
           aria-label="Close dialog"
         >
           <CloseIcon size={20} />
         </button>
 
         {/* Left Column: Image with Front / Back Switch */}
-        <div className="bg-[#15171B] p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-[#252930]">
+        <div className="bg-[#151515] p-6 flex flex-col justify-between border-b md:border-b-0 md:border-r border-[#292929]">
           <div className="relative aspect-square flex items-center justify-center">
             <img
               src={currentImage}
@@ -51,7 +51,7 @@ export default function ProductModal() {
               className="max-h-[360px] w-full object-contain"
             />
             {quickViewProduct.tag && (
-              <span className="absolute top-2 left-2 bg-[#E10600] text-white text-[9px] font-black tracking-widest px-2 py-0.5 uppercase">
+              <span className="absolute top-2 left-2 bg-[#E10600] text-white text-[9px] font-black tracking-widest px-2.5 py-1 uppercase shadow-md">
                 {quickViewProduct.tag}
               </span>
             )}
@@ -61,20 +61,20 @@ export default function ProductModal() {
           <div className="flex gap-2 pt-4 justify-center">
             <button
               onClick={() => setActiveImage('front')}
-              className={`px-4 py-1.5 text-[10px] font-bold uppercase tracking-wider border transition-colors ${
+              className={`px-4 py-2 text-[10px] font-bold uppercase tracking-wider border transition-colors ${
                 activeImage === 'front'
-                  ? 'border-[#E10600] bg-[#E10600] text-white'
-                  : 'border-[#30353E] bg-[#1A1D24] text-[#A5A8AF] hover:text-white'
+                  ? 'border-[#E10600] bg-[#E10600] text-white shadow-md'
+                  : 'border-[#292929] bg-[#111111] text-[#B8B8B8] hover:text-white hover:border-white'
               }`}
             >
               FRONT VIEW
             </button>
             <button
               onClick={() => setActiveImage('back')}
-              className={`px-4 py-1.5 text-[10px] font-bold uppercase tracking-wider border transition-colors ${
+              className={`px-4 py-2 text-[10px] font-bold uppercase tracking-wider border transition-colors ${
                 activeImage === 'back'
-                  ? 'border-[#E10600] bg-[#E10600] text-white'
-                  : 'border-[#30353E] bg-[#1A1D24] text-[#A5A8AF] hover:text-white'
+                  ? 'border-[#E10600] bg-[#E10600] text-white shadow-md'
+                  : 'border-[#292929] bg-[#111111] text-[#B8B8B8] hover:text-white hover:border-white'
               }`}
             >
               BACK GRAPHIC
@@ -83,9 +83,9 @@ export default function ProductModal() {
         </div>
 
         {/* Right Column: Details & Size Selector */}
-        <div className="p-8 flex flex-col justify-between bg-[#0D0F14]">
+        <div className="p-6 sm:p-8 flex flex-col justify-between bg-[#111111]">
           <div>
-            <div className="inline-flex items-center gap-2 bg-[#161A22] border border-[#2B303C] px-2.5 py-1 rounded-sm text-[10px] font-bold tracking-[2px] text-[#E2E4E9] uppercase mb-2">
+            <div className="inline-flex items-center gap-2 bg-[#151515] border border-[#292929] px-2.5 py-1 rounded-sm text-[10px] font-bold tracking-[2px] text-white uppercase mb-2">
               <span className="w-2.5 h-0.5 bg-[#E10600]" />
               <span>DROP 001 / MOTORSPORT STREETWEAR</span>
             </div>
@@ -94,7 +94,7 @@ export default function ProductModal() {
               {quickViewProduct.name}
             </h2>
 
-            <p className="text-xs text-[#9CA3AF] mt-1 uppercase tracking-wider font-medium">
+            <p className="text-xs text-[#B8B8B8] mt-1 uppercase tracking-wider font-medium">
               {quickViewProduct.subtitle}
             </p>
 
@@ -103,7 +103,7 @@ export default function ProductModal() {
                 ₹{quickViewProduct.price.toLocaleString('en-IN')}
               </span>
               {quickViewProduct.compareAtPrice && (
-                <span className="text-sm text-[#7E8491] line-through">
+                <span className="text-sm text-[#858585] line-through">
                   ₹{quickViewProduct.compareAtPrice.toLocaleString('en-IN')}
                 </span>
               )}
@@ -112,7 +112,7 @@ export default function ProductModal() {
               </span>
             </div>
 
-            <p className="text-xs text-[#D1D5DB] leading-relaxed line-clamp-3 font-normal">
+            <p className="text-xs text-[#B8B8B8] leading-relaxed line-clamp-3 font-normal">
               {quickViewProduct.description}
             </p>
 
@@ -122,7 +122,7 @@ export default function ProductModal() {
                 <span className="text-[11px] font-bold tracking-widest uppercase text-white">
                   SELECT SIZE
                 </span>
-                <span className="text-[10px] text-[#8E939C] uppercase tracking-wider">
+                <span className="text-[10px] text-[#858585] uppercase tracking-wider">
                   Unisex Oversized Fit
                 </span>
               </div>
@@ -132,10 +132,10 @@ export default function ProductModal() {
                   <button
                     key={size}
                     onClick={() => setSelectedSize(size)}
-                    className={`py-3 text-xs font-black tracking-wider uppercase border transition-all ${
+                    className={`py-3 text-xs font-black uppercase border transition-colors ${
                       selectedSize === size
-                        ? 'bg-[#E10600] border-[#E10600] text-white shadow-lg shadow-[#E10600]/30'
-                        : 'border-[#30353E] bg-[#15171C] text-[#C6C8CC] hover:border-white hover:text-white'
+                        ? 'bg-[#E10600] border-[#E10600] text-white shadow-md'
+                        : 'border-[#292929] bg-[#151515] text-white hover:border-white'
                     }`}
                   >
                     {size}
@@ -149,10 +149,10 @@ export default function ProductModal() {
               <span className="text-[11px] font-bold tracking-widest uppercase text-white">
                 QUANTITY
               </span>
-              <div className="flex items-center border border-[#30353E] bg-[#15171C]">
+              <div className="flex items-center border border-[#292929] bg-[#151515]">
                 <button
                   onClick={() => setQuantity(q => Math.max(1, q - 1))}
-                  className="w-8 h-8 flex items-center justify-center text-[#A5A8AF] hover:text-white"
+                  className="w-9 h-9 flex items-center justify-center text-[#B8B8B8] hover:text-white"
                 >
                   <MinusIcon size={14} />
                 </button>
@@ -161,7 +161,7 @@ export default function ProductModal() {
                 </span>
                 <button
                   onClick={() => setQuantity(q => q + 1)}
-                  className="w-8 h-8 flex items-center justify-center text-[#A5A8AF] hover:text-white"
+                  className="w-9 h-9 flex items-center justify-center text-[#B8B8B8] hover:text-white"
                 >
                   <PlusIcon size={14} />
                 </button>
@@ -170,16 +170,16 @@ export default function ProductModal() {
           </div>
 
           {/* Action CTAs */}
-          <div className="mt-8 pt-6 border-t border-[#252930] space-y-3">
+          <div className="mt-8 pt-6 border-t border-[#292929] space-y-3">
             <button
               onClick={handleAdd}
-              className="w-full py-4 bg-[#E10600] hover:bg-[#ff1e17] text-white text-xs font-black tracking-[2.5px] uppercase transition-transform active:scale-[0.99] flex items-center justify-center gap-2"
+              className="w-full py-4 bg-[#E10600] hover:bg-[#FF1E17] text-white text-xs font-black tracking-[2px] uppercase transition-transform active:scale-[0.99] flex items-center justify-center gap-2 shadow-lg shadow-[#E10600]/25"
             >
-              <span>ADD SIZE {selectedSize} TO BAG</span>
+              <span>ADD SIZE {selectedSize} TO BAG — ₹{(quickViewProduct.price * quantity).toLocaleString('en-IN')}</span>
               <span>↗</span>
             </button>
 
-            <div className="flex justify-between items-center text-[10px] text-[#8E939C] tracking-wider uppercase pt-2">
+            <div className="flex justify-between items-center text-[10px] text-[#858585] tracking-wider uppercase pt-2">
               <Link
                 href={`/product/${quickViewProduct.id}`}
                 onClick={() => setQuickViewProduct(null)}

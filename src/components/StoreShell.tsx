@@ -39,12 +39,12 @@ export default function StoreShell({ children }: { children: React.ReactNode }) 
   }
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#08090B] text-white selection:bg-[#E10600] selection:text-white">
+    <div className="min-h-screen flex flex-col bg-[#080808] text-white selection:bg-[#E10600] selection:text-white">
       {!isAdminRoute && <PreviewBanner />}
       {!isAdminRoute && <AnnouncementBar />}
       {!isAdminRoute && <Header />}
 
-      <main className="flex-1">{children}</main>
+      <main className="flex-1 bg-[#080808] text-white">{children}</main>
 
       {!isAdminRoute && <Footer />}
 

@@ -19,23 +19,23 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#08090B] border-t border-[#1E222D] text-[#A5A8AF] pt-16 pb-12 transition-all">
+    <footer className="bg-[#080808] border-t border-[#292929] text-[#B8B8B8] pt-16 pb-12 transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-14 border-b border-[#1E222D]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-14 border-b border-[#292929]">
           {/* Brand info on Solid Dark Plate */}
-          <div className="lg:col-span-2 space-y-4 bg-[#0D0F14] border border-[#222733] p-6 sm:p-8 shadow-xl">
+          <div className="lg:col-span-2 space-y-4 bg-[#151515] border border-[#292929] p-6 sm:p-8 shadow-xl">
             <Link href="/" className="flex items-center gap-2 select-none">
               <Slashes size={28} className="text-[#E10600]" />
               <div className="flex flex-col">
                 <span className="font-['Barlow_Condensed',sans-serif] font-black italic text-3xl tracking-tight text-white leading-tight">
                   APEXORA
                 </span>
-                <span className="text-[8px] font-['DM_Sans',sans-serif] font-semibold tracking-[2.8px] text-[#A5A8AF] uppercase leading-none mt-0.5">
+                <span className="text-[8px] font-['DM_Sans',sans-serif] font-semibold tracking-[2.8px] text-[#B8B8B8] uppercase leading-none mt-0.5">
                   MOTORSPORT CULTURE
                 </span>
               </div>
             </Link>
-            <p className="text-xs text-[#D1D5DB] max-w-sm leading-relaxed font-normal">
+            <p className="text-xs text-[#B8B8B8] max-w-sm leading-relaxed font-normal">
               Motorsport attitude reworked for everyday life. High-density racing apparel inspired by circuit telemetry, apex lines, and the paddock lifestyle.
             </p>
             <div className="text-[11px] font-black italic text-[#E10600] tracking-widest uppercase font-['Barlow_Condensed',sans-serif]">
@@ -46,7 +46,7 @@ export default function Footer() {
                 href={settings.instagramUrl || 'https://www.instagram.com/harrsha.58/'}
                 target="_blank"
                 rel="noreferrer"
-                className="w-10 h-10 flex items-center justify-center bg-[#14171E] border border-[#2B303C] hover:border-[#E10600] text-white hover:text-[#E10600] transition-colors"
+                className="w-10 h-10 flex items-center justify-center bg-[#111111] border border-[#292929] hover:border-[#E10600] text-white hover:text-[#E10600] transition-colors"
                 aria-label="Instagram"
               >
                 <InstagramIcon size={17} />
@@ -55,7 +55,7 @@ export default function Footer() {
                 href={settings.youtubeUrl || 'https://www.youtube.com/@harrsha.58'}
                 target="_blank"
                 rel="noreferrer"
-                className="w-10 h-10 flex items-center justify-center bg-[#14171E] border border-[#2B303C] hover:border-[#E10600] text-white hover:text-[#E10600] transition-colors"
+                className="w-10 h-10 flex items-center justify-center bg-[#111111] border border-[#292929] hover:border-[#E10600] text-white hover:text-[#E10600] transition-colors"
                 aria-label="YouTube"
               >
                 <YoutubeIcon size={17} />
@@ -64,7 +64,7 @@ export default function Footer() {
                 href={`https://wa.me/${(settings.whatsappNumber || '').replace(/[^0-9]/g, '')}`}
                 target="_blank"
                 rel="noreferrer"
-                className="w-10 h-10 flex items-center justify-center bg-[#14171E] border border-[#2B303C] hover:border-[#E10600] text-white hover:text-[#E10600] transition-colors"
+                className="w-10 h-10 flex items-center justify-center bg-[#111111] border border-[#292929] hover:border-[#E10600] text-white hover:text-[#E10600] transition-colors"
                 aria-label="WhatsApp"
               >
                 <WhatsAppIcon size={17} />
@@ -162,17 +162,17 @@ export default function Footer() {
                     onChange={e => setNewsletterEmail(e.target.value)}
                     placeholder="Enter your email"
                     required
-                    className="w-full bg-[#111418] border border-[#2B2F38] focus:border-[#E10600] text-white text-xs px-3 py-2.5 outline-none tracking-wider transition-colors"
+                    className="w-full bg-[#111111] border border-[#292929] focus:border-[#E10600] text-white text-xs px-3 py-2.5 outline-none tracking-wider transition-colors placeholder-[#858585]"
                   />
                   <button
                     type="submit"
-                    className="absolute right-1 top-1 bottom-1 px-3 bg-[#E10600] hover:bg-[#ff1e17] text-white flex items-center justify-center transition-colors"
+                    className="absolute right-1 top-1 bottom-1 px-3 bg-[#E10600] hover:bg-[#FF1E17] text-white flex items-center justify-center transition-colors"
                     aria-label="Subscribe"
                   >
                     <ArrowRightIcon size={14} />
                   </button>
                 </div>
-                <span className="text-[10px] text-[#636872] block">
+                <span className="text-[10px] text-[#858585] block">
                   Zero spam. Unsubscribe anytime with one click.
                 </span>
               </form>
@@ -181,7 +181,7 @@ export default function Footer() {
         </div>
 
         {/* Legal & Bottom bar */}
-        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] tracking-wider uppercase text-[#737883]">
+        <div className="pt-8 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] tracking-wider uppercase text-[#858585]">
           <div className="flex flex-wrap items-center justify-center md:justify-start gap-4">
             <span>© {new Date().getFullYear()} APEXORA MOTORSPORT CULTURE BY HARSHA.</span>
             <span>INDIA · DROP 001</span>
