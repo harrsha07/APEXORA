@@ -17,15 +17,16 @@ export default function ContactPage() {
 
   return (
     <div className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      <div className="border-b border-[#252930] pb-8 mb-12">
-        <div className="flex items-center gap-2 text-xs font-bold tracking-[2.5px] text-[#E10600] uppercase mb-2">
-          <Slashes size={18} />
+      {/* Header on Solid Dark Plate */}
+      <div className="bg-[#0D0F14] border border-[#222733] p-8 sm:p-10 mb-10 shadow-xl">
+        <div className="inline-flex items-center gap-2 bg-[#161A22] border border-[#2B303C] px-3.5 py-1.5 rounded-sm text-xs font-bold tracking-[2.5px] text-[#E2E4E9] uppercase mb-3">
+          <Slashes size={18} className="text-[#E10600]" />
           <span>PIT CREW COMMUNICATIONS</span>
         </div>
-        <h1 className="font-['Barlow_Condensed',sans-serif] font-black italic text-5xl sm:text-6xl text-white uppercase leading-none">
+        <h1 className="font-['Barlow_Condensed',sans-serif] font-black italic text-5xl sm:text-6xl text-white uppercase leading-[1.12]">
           CONTACT <span className="text-[#E10600]">APEXORA.</span>
         </h1>
-        <p className="text-xs text-[#8E939C] uppercase tracking-wider mt-2">
+        <p className="text-xs text-[#9CA3AF] uppercase tracking-wider mt-2 font-medium">
           Have questions regarding garment sizing, custom corporate orders, or order status? Reach out directly.
         </p>
       </div>
@@ -33,7 +34,7 @@ export default function ContactPage() {
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10">
         {/* Contact Info (5 Cols) */}
         <div className="lg:col-span-5 space-y-6">
-          <div className="bg-[#111418] border border-[#252930] p-6 space-y-4">
+          <div className="bg-[#0D0F14] border border-[#222733] p-6 sm:p-8 space-y-4 shadow-xl">
             <h3 className="font-['Barlow_Condensed',sans-serif] font-black italic text-2xl text-white uppercase">
               DIRECT CHANNELS
             </h3>

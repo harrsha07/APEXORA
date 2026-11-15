@@ -35,15 +35,15 @@ export default function FAQPage() {
 
   return (
     <div className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-      <div className="border-b border-[#252930] pb-8 mb-10 text-center">
-        <div className="flex items-center justify-center gap-2 text-xs font-bold tracking-[2.5px] text-[#E10600] uppercase mb-2">
-          <Slashes size={20} />
+      <div className="bg-[#0D0F14] border border-[#222733] p-8 sm:p-10 mb-8 text-center shadow-xl">
+        <div className="inline-flex items-center justify-center gap-2 bg-[#161A22] border border-[#2B303C] px-3.5 py-1.5 rounded-sm text-xs font-bold tracking-[2.5px] text-[#E2E4E9] uppercase mb-3">
+          <Slashes size={20} className="text-[#E10600]" />
           <span>HELP & GUIDELINES</span>
         </div>
-        <h1 className="font-['Barlow_Condensed',sans-serif] font-black italic text-5xl sm:text-6xl text-white uppercase leading-none">
+        <h1 className="font-['Barlow_Condensed',sans-serif] font-black italic text-5xl sm:text-6xl text-white uppercase leading-[1.12]">
           FREQUENTLY ASKED <span className="text-[#E10600]">QUESTIONS.</span>
         </h1>
-        <p className="text-xs text-[#8E939C] uppercase tracking-wider mt-2">
+        <p className="text-xs text-[#9CA3AF] uppercase tracking-wider mt-2 font-medium">
           Everything you need to know about APEXORA sizing, shipping, fabrics, and care.
         </p>
       </div>
@@ -52,7 +52,7 @@ export default function FAQPage() {
         {FAQS.map((item, idx) => {
           const isOpen = openIndex === idx;
           return (
-            <div key={idx} className="bg-[#111418] border border-[#252930] transition-colors">
+            <div key={idx} className="bg-[#0D0F14] border border-[#222733] transition-colors shadow-md">
               <button
                 onClick={() => setOpenIndex(isOpen ? null : idx)}
                 className="w-full p-6 text-left flex items-center justify-between gap-4 font-['Barlow_Condensed',sans-serif] font-black italic text-xl text-white uppercase tracking-wide hover:text-[#E10600] transition-colors"

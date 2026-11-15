@@ -81,22 +81,22 @@ export default function AccountPage() {
 
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      {/* Account Header */}
-      <div className="border-b border-[#252930] pb-6 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+      {/* Account Header on Solid Dark Plate */}
+      <div className="bg-[#0D0F14] border border-[#222733] p-6 sm:p-8 mb-8 flex flex-col sm:flex-row sm:items-center justify-between gap-4 shadow-xl">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold tracking-[2.5px] text-[#E10600] uppercase mb-1">
-            <Slashes size={18} />
+          <div className="inline-flex items-center gap-2 bg-[#161A22] border border-[#2B303C] px-3 py-1 rounded-sm text-xs font-bold tracking-[2.5px] text-[#E2E4E9] uppercase mb-2">
+            <Slashes size={18} className="text-[#E10600]" />
             <span>PADDOCK CLUB MEMBER</span>
           </div>
-          <h1 className="font-['Barlow_Condensed',sans-serif] font-black italic text-4xl sm:text-5xl text-white uppercase leading-none">
+          <h1 className="font-['Barlow_Condensed',sans-serif] font-black italic text-4xl sm:text-5xl text-white uppercase leading-[1.12]">
             VIKRAMADITYA <span className="text-[#E10600]">ROY</span>
           </h1>
-          <span className="text-xs text-[#8E939C] tracking-wider">{email} · Member since Jan 2026</span>
+          <span className="text-xs text-[#9CA3AF] tracking-wider font-medium block mt-1">{email} · Member since Jan 2026</span>
         </div>
 
         <button
           onClick={() => setIsLoggedIn(false)}
-          className="text-xs uppercase font-bold text-[#8E939C] hover:text-[#E10600] border border-[#2B2F38] px-4 py-2 self-start sm:self-auto"
+          className="text-xs uppercase font-bold text-[#D1D5DB] hover:text-[#E10600] bg-[#14171E] border border-[#2B303C] hover:border-[#E10600] px-4 py-2 self-start sm:self-auto transition-colors"
         >
           Sign Out
         </button>

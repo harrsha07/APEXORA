@@ -49,33 +49,33 @@ export default function ShopPage() {
 
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      {/* Header */}
-      <div className="border-b border-[#252930] pb-8 mb-10">
-        <div className="flex items-center gap-2 text-xs font-bold tracking-[2.5px] text-[#E10600] uppercase mb-2">
-          <Slashes size={18} />
+      {/* Header Banner on Solid Dark Plate */}
+      <div className="bg-[#0D0F14] border border-[#222733] p-8 sm:p-10 mb-8 shadow-xl">
+        <div className="inline-flex items-center gap-2 bg-[#161A22] border border-[#2B303C] px-3.5 py-1.5 rounded-sm text-xs font-bold tracking-[2.5px] text-[#E2E4E9] uppercase mb-3">
+          <Slashes size={18} className="text-[#E10600]" />
           <span>GARMENTS & PERFORMANCE APPAREL</span>
         </div>
-        <h1 className="font-['Barlow_Condensed',sans-serif] font-black italic text-5xl sm:text-6xl text-white tracking-tight uppercase leading-none">
+        <h1 className="font-['Barlow_Condensed',sans-serif] font-black italic text-5xl sm:text-6xl text-white tracking-normal uppercase leading-[1.1]">
           SHOP ALL <span className="text-[#E10600]">PRODUCTS.</span>
         </h1>
-        <p className="text-xs text-[#8E939C] uppercase tracking-wider mt-2">
+        <p className="text-xs text-[#9CA3AF] uppercase tracking-wider mt-2 font-medium">
           Showing {filteredProducts.length} of {activeProducts.length} race-ready streetwear garments
         </p>
       </div>
 
       {/* Filter & Sort Bar */}
-      <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 bg-[#111418] border border-[#252930] p-4 mb-8">
+      <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 bg-[#0D0F14] border border-[#222733] p-4 mb-8">
         {/* Category Tabs */}
         <div className="flex flex-wrap items-center gap-2">
-          <span className="text-[10px] font-bold text-[#686D77] uppercase tracking-wider mr-1">CATEGORY:</span>
+          <span className="text-[10px] font-bold text-[#9CA3AF] uppercase tracking-wider mr-1">CATEGORY:</span>
           {categories.map(cat => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
               className={`px-3 py-1.5 text-xs font-bold tracking-wider uppercase border transition-colors ${
                 selectedCategory === cat
-                  ? 'bg-[#E10600] border-[#E10600] text-white'
-                  : 'bg-[#15171C] border-[#2B2F38] text-[#A5A8AF] hover:text-white'
+                  ? 'bg-[#E10600] border-[#E10600] text-white shadow-md'
+                  : 'bg-[#14171E] border-[#252A36] text-[#D1D5DB] hover:text-white hover:border-[#E10600]'
               }`}
             >
               {cat}
@@ -92,16 +92,16 @@ export default function ShopPage() {
               value={searchQuery}
               onChange={e => setSearchQuery(e.target.value)}
               placeholder="FILTER BY NAME..."
-              className="w-full bg-[#15171C] border border-[#2B2F38] text-white text-xs px-3 py-2 pl-8 outline-none uppercase tracking-wider"
+              className="w-full bg-[#14171E] border border-[#252A36] text-white text-xs px-3 py-2 pl-8 outline-none uppercase tracking-wider"
             />
-            <SearchIcon size={14} className="absolute left-2.5 top-2.5 text-[#686D77]" />
+            <SearchIcon size={14} className="absolute left-2.5 top-2.5 text-[#9CA3AF]" />
           </div>
 
           {/* Sort dropdown */}
           <select
             value={sortBy}
             onChange={e => setSortBy(e.target.value)}
-            className="bg-[#15171C] border border-[#2B2F38] text-white text-xs px-3 py-2 outline-none uppercase tracking-wider cursor-pointer"
+            className="bg-[#14171E] border border-[#252A36] text-white text-xs px-3 py-2 outline-none uppercase tracking-wider cursor-pointer"
           >
             <option value="featured">FEATURED</option>
             <option value="newest">NEWEST</option>

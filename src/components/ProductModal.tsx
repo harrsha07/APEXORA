@@ -83,17 +83,18 @@ export default function ProductModal() {
         </div>
 
         {/* Right Column: Details & Size Selector */}
-        <div className="p-8 flex flex-col justify-between">
+        <div className="p-8 flex flex-col justify-between bg-[#0D0F14]">
           <div>
-            <div className="text-[10px] font-bold tracking-[2.5px] text-[#E10600] uppercase mb-1">
-              DROP 001 / MOTORSPORT STREETWEAR
+            <div className="inline-flex items-center gap-2 bg-[#161A22] border border-[#2B303C] px-2.5 py-1 rounded-sm text-[10px] font-bold tracking-[2px] text-[#E2E4E9] uppercase mb-2">
+              <span className="w-2.5 h-0.5 bg-[#E10600]" />
+              <span>DROP 001 / MOTORSPORT STREETWEAR</span>
             </div>
 
-            <h2 className="font-['Barlow_Condensed',sans-serif] font-black italic text-3xl md:text-4xl text-white tracking-tight uppercase leading-none">
+            <h2 className="font-['Barlow_Condensed',sans-serif] font-black italic text-3xl md:text-4xl text-white tracking-normal uppercase leading-[1.12]">
               {quickViewProduct.name}
             </h2>
 
-            <p className="text-xs text-[#8E939C] mt-1 uppercase tracking-wider">
+            <p className="text-xs text-[#9CA3AF] mt-1 uppercase tracking-wider font-medium">
               {quickViewProduct.subtitle}
             </p>
 
@@ -102,16 +103,16 @@ export default function ProductModal() {
                 ₹{quickViewProduct.price.toLocaleString('en-IN')}
               </span>
               {quickViewProduct.compareAtPrice && (
-                <span className="text-sm text-[#6F747F] line-through">
+                <span className="text-sm text-[#7E8491] line-through">
                   ₹{quickViewProduct.compareAtPrice.toLocaleString('en-IN')}
                 </span>
               )}
-              <span className="text-[10px] text-emerald-400 font-bold uppercase tracking-wider">
+              <span className="text-[10px] text-emerald-400 font-bold uppercase tracking-wider bg-emerald-950/40 border border-emerald-800/40 px-2 py-0.5">
                 In Stock · Ready to dispatch
               </span>
             </div>
 
-            <p className="text-xs text-[#C6C8CC] leading-relaxed line-clamp-3">
+            <p className="text-xs text-[#D1D5DB] leading-relaxed line-clamp-3 font-normal">
               {quickViewProduct.description}
             </p>
 

@@ -150,27 +150,28 @@ export default function ProductDetailPage() {
         </div>
 
         {/* Right Product Details & Buy Box (5 Columns) */}
-        <div className="lg:col-span-5 flex flex-col justify-between">
+        <div className="lg:col-span-5 flex flex-col justify-between bg-[#0D0F14] border border-[#222733] p-6 sm:p-8 shadow-xl">
           <div>
-            <div className="text-[11px] font-bold tracking-[3px] text-[#E10600] uppercase mb-2">
-              APEXORA / DROP 001
+            <div className="inline-flex items-center gap-2 bg-[#161A22] border border-[#2B303C] px-3 py-1 rounded-sm text-[10px] font-bold tracking-[2.5px] text-[#E2E4E9] uppercase mb-3">
+              <span className="w-2.5 h-0.5 bg-[#E10600]" />
+              <span>APEXORA / DROP 001</span>
             </div>
 
-            <h1 className="font-['Barlow_Condensed',sans-serif] font-black italic text-4xl sm:text-5xl text-white tracking-tight uppercase leading-[0.92]">
+            <h1 className="font-['Barlow_Condensed',sans-serif] font-black italic text-4xl sm:text-5xl text-white tracking-normal uppercase leading-[1.12]">
               {product.name}
             </h1>
 
-            <p className="text-xs text-[#8E939C] uppercase tracking-wider mt-1.5">
+            <p className="text-xs text-[#9CA3AF] uppercase tracking-wider mt-1.5 font-medium">
               {product.subtitle}
             </p>
 
             {/* Price section */}
-            <div className="flex items-baseline gap-3 my-5 pb-4 border-b border-[#252930]">
+            <div className="flex items-baseline gap-3 my-5 pb-4 border-b border-[#1E222D]">
               <span className="font-['Barlow_Condensed',sans-serif] font-black italic text-4xl text-white">
                 ₹{product.price.toLocaleString('en-IN')}
               </span>
               {product.compareAtPrice && (
-                <span className="text-sm text-[#6F747F] line-through">
+                <span className="text-sm text-[#7E8491] line-through">
                   ₹{product.compareAtPrice.toLocaleString('en-IN')}
                 </span>
               )}
@@ -182,9 +183,9 @@ export default function ProductDetailPage() {
             </div>
 
             {/* Garment Highlights */}
-            <div className="space-y-1.5 text-xs text-[#C6C8CC] mb-6">
-              <p className="leading-relaxed">{product.description}</p>
-              <div className="pt-2 text-[11px] text-[#8E939C] flex items-center gap-4">
+            <div className="space-y-1.5 text-xs text-[#D1D5DB] mb-6">
+              <p className="leading-relaxed font-normal">{product.description}</p>
+              <div className="pt-2 text-[11px] text-[#9CA3AF] flex items-center gap-4">
                 <span>COLOUR: <strong className="text-white">{product.color.toUpperCase()}</strong></span>
                 <span>·</span>
                 <span>FABRIC: <strong className="text-white">240 GSM COMBED COTTON</strong></span>

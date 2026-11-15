@@ -44,16 +44,16 @@ export default function TrackOrderPage() {
 
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-      {/* Header */}
-      <div className="border-b border-[#252930] pb-6 mb-8 text-center sm:text-left">
-        <div className="flex items-center justify-center sm:justify-start gap-2 text-xs font-bold tracking-[2.5px] text-[#E10600] uppercase mb-1">
-          <Slashes size={18} />
+      {/* Header Banner on Solid Dark Plate */}
+      <div className="bg-[#0D0F14] border border-[#222733] p-6 sm:p-8 mb-8 text-center sm:text-left shadow-xl">
+        <div className="inline-flex items-center justify-center sm:justify-start gap-2 bg-[#161A22] border border-[#2B303C] px-3 py-1 rounded-sm text-xs font-bold tracking-[2.5px] text-[#E2E4E9] uppercase mb-2">
+          <Slashes size={18} className="text-[#E10600]" />
           <span>LOGISTICS & DISPATCH RADAR</span>
         </div>
-        <h1 className="font-['Barlow_Condensed',sans-serif] font-black italic text-4xl sm:text-5xl text-white uppercase leading-none">
+        <h1 className="font-['Barlow_Condensed',sans-serif] font-black italic text-4xl sm:text-5xl text-white uppercase leading-[1.12]">
           TRACK YOUR <span className="text-[#E10600]">PACKAGE.</span>
         </h1>
-        <p className="text-xs text-[#8E939C] uppercase tracking-wider mt-2">
+        <p className="text-xs text-[#9CA3AF] uppercase tracking-wider mt-2 font-medium">
           Enter your APEXORA Order ID (e.g. APX-8921) or 10-digit mobile number.
         </p>
       </div>

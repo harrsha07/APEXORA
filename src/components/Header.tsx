@@ -80,14 +80,11 @@ export default function Header() {
           {/* Shopping Bag Button */}
           <button
             onClick={() => setCartDrawerOpen(true)}
-            className="flex items-center gap-2 border border-[#44484F] hover:border-[#E10600] bg-[#111418] hover:bg-[#161A20] text-white px-3 sm:px-4 py-2 text-[11px] font-bold tracking-wider uppercase transition-all"
+            className="flex items-center gap-2 border border-[#2B303C] hover:border-[#E10600] bg-[#12151B] hover:bg-[#181C24] text-white px-3.5 py-2 text-[11px] font-black tracking-widest uppercase transition-all shadow-md"
             aria-label={`Shopping bag with ${cartCount} items`}
           >
             <BagIcon size={16} className="text-[#E10600]" />
-            <span className="hidden sm:inline">BAG</span>
-            <span className="bg-[#E10600] text-white text-[10px] font-black px-2 py-0.5 rounded-full leading-none">
-              {cartCount}
-            </span>
+            <span>BAG ({cartCount})</span>
           </button>
 
           {/* Mobile Menu Toggle */}

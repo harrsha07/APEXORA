@@ -19,31 +19,34 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#08090B] border-t border-[#252930] text-[#A5A8AF] pt-16 pb-12 transition-all">
+    <footer className="bg-[#08090B] border-t border-[#1E222D] text-[#A5A8AF] pt-16 pb-12 transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-14 border-b border-[#1C1F26]">
-          {/* Brand info */}
-          <div className="lg:col-span-2 space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-14 border-b border-[#1E222D]">
+          {/* Brand info on Solid Dark Plate */}
+          <div className="lg:col-span-2 space-y-4 bg-[#0D0F14] border border-[#222733] p-6 sm:p-8 shadow-xl">
             <Link href="/" className="flex items-center gap-2 select-none">
               <Slashes size={28} className="text-[#E10600]" />
               <div className="flex flex-col">
-                <span className="font-['Barlow_Condensed',sans-serif] font-black italic text-2xl tracking-tight text-white leading-none">
+                <span className="font-['Barlow_Condensed',sans-serif] font-black italic text-3xl tracking-tight text-white leading-tight">
                   APEXORA
                 </span>
-                <span className="text-[7.5px] font-['DM_Sans',sans-serif] font-semibold tracking-[2.8px] text-[#A5A8AF] uppercase leading-none mt-0.5">
+                <span className="text-[8px] font-['DM_Sans',sans-serif] font-semibold tracking-[2.8px] text-[#A5A8AF] uppercase leading-none mt-0.5">
                   MOTORSPORT CULTURE
                 </span>
               </div>
             </Link>
-            <p className="text-xs text-[#8E939C] max-w-sm leading-relaxed">
+            <p className="text-xs text-[#D1D5DB] max-w-sm leading-relaxed font-normal">
               Motorsport attitude reworked for everyday life. High-density racing apparel inspired by circuit telemetry, apex lines, and the paddock lifestyle.
             </p>
+            <div className="text-[11px] font-black italic text-[#E10600] tracking-widest uppercase font-['Barlow_Condensed',sans-serif]">
+              BUILT FOR THE PURSUIT.
+            </div>
             <div className="flex items-center gap-3 pt-2">
               <a
                 href={settings.instagramUrl || 'https://www.instagram.com/harrsha.58/'}
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 flex items-center justify-center border border-[#2B2F38] hover:border-[#E10600] text-[#C6C8CC] hover:text-[#E10600] transition-colors"
+                className="w-10 h-10 flex items-center justify-center bg-[#14171E] border border-[#2B303C] hover:border-[#E10600] text-white hover:text-[#E10600] transition-colors"
                 aria-label="Instagram"
               >
                 <InstagramIcon size={17} />
@@ -52,7 +55,7 @@ export default function Footer() {
                 href={settings.youtubeUrl || 'https://www.youtube.com/@harrsha.58'}
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 flex items-center justify-center border border-[#2B2F38] hover:border-[#E10600] text-[#C6C8CC] hover:text-[#E10600] transition-colors"
+                className="w-10 h-10 flex items-center justify-center bg-[#14171E] border border-[#2B303C] hover:border-[#E10600] text-white hover:text-[#E10600] transition-colors"
                 aria-label="YouTube"
               >
                 <YoutubeIcon size={17} />
@@ -61,7 +64,7 @@ export default function Footer() {
                 href={`https://wa.me/${(settings.whatsappNumber || '').replace(/[^0-9]/g, '')}`}
                 target="_blank"
                 rel="noreferrer"
-                className="w-9 h-9 flex items-center justify-center border border-[#2B2F38] hover:border-[#E10600] text-[#C6C8CC] hover:text-[#E10600] transition-colors"
+                className="w-10 h-10 flex items-center justify-center bg-[#14171E] border border-[#2B303C] hover:border-[#E10600] text-white hover:text-[#E10600] transition-colors"
                 aria-label="WhatsApp"
               >
                 <WhatsAppIcon size={17} />

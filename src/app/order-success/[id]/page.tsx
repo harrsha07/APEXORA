@@ -33,38 +33,38 @@ export default function OrderSuccessPage() {
             <Slashes size={18} />
             <span>PADDOCK CONFIRMATION</span>
           </div>
-          <h1 className="font-['Barlow_Condensed',sans-serif] font-black italic text-4xl sm:text-5xl text-white uppercase leading-none">
+          <h1 className="font-['Barlow_Condensed',sans-serif] font-black italic text-4xl sm:text-5xl text-white uppercase leading-[1.12]">
             ORDER CONFIRMED.
           </h1>
-          <p className="text-xs sm:text-sm text-[#A5A8AF] max-w-md mx-auto mt-2 leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#D1D5DB] max-w-md mx-auto mt-2 leading-relaxed font-normal">
             Thank you for joining the APEXORA motorsport movement. Your race gear is being prepared for dispatch.
           </p>
         </div>
 
         {/* Order Reference Badge */}
-        <div className="inline-flex items-center gap-4 bg-[#15171C] border border-[#2B2F38] px-6 py-3 text-xs uppercase tracking-wider">
-          <span className="text-[#8E939C]">ORDER NUMBER:</span>
-          <strong className="text-white font-mono text-sm tracking-widest text-[#E10600]">
+        <div className="inline-flex items-center gap-4 bg-[#14171E] border border-[#252A36] px-6 py-3 text-xs uppercase tracking-wider">
+          <span className="text-[#9CA3AF]">ORDER NUMBER:</span>
+          <strong className="font-mono text-sm tracking-widest text-[#E10600]">
             {order ? order.orderNumber : 'APX-8921'}
           </strong>
         </div>
 
         {/* Dispatch Timeline */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 text-left border-t border-[#1C1F26]">
-          <div className="bg-[#15171C] p-4 border border-[#252930]">
-            <span className="text-[10px] font-bold text-[#8E939C] uppercase block">STATUS</span>
+        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4 text-left border-t border-[#1E222D]">
+          <div className="bg-[#14171E] p-4 border border-[#252A36]">
+            <span className="text-[10px] font-bold text-[#9CA3AF] uppercase block">STATUS</span>
             <span className="text-xs font-black text-emerald-400 uppercase mt-0.5 block">
               {order?.status || 'Confirmed & Queued'}
             </span>
           </div>
-          <div className="bg-[#15171C] p-4 border border-[#252930]">
-            <span className="text-[10px] font-bold text-[#8E939C] uppercase block">ESTIMATED DISPATCH</span>
+          <div className="bg-[#14171E] p-4 border border-[#252A36]">
+            <span className="text-[10px] font-bold text-[#9CA3AF] uppercase block">ESTIMATED DISPATCH</span>
             <span className="text-xs font-black text-white uppercase mt-0.5 block">
               Within 24-48 Hours
             </span>
           </div>
-          <div className="bg-[#15171C] p-4 border border-[#252930]">
-            <span className="text-[10px] font-bold text-[#8E939C] uppercase block">PAYMENT</span>
+          <div className="bg-[#14171E] p-4 border border-[#252A36]">
+            <span className="text-[10px] font-bold text-[#9CA3AF] uppercase block">PAYMENT</span>
             <span className="text-xs font-black text-white uppercase mt-0.5 block">
               {order?.paymentMethod || 'Razorpay Verified'}
             </span>

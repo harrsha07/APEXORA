@@ -75,20 +75,20 @@ export default function CartPage() {
 
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
-      {/* Header */}
-      <div className="border-b border-[#252930] pb-6 mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+      {/* Header Banner on Solid Dark Plate */}
+      <div className="bg-[#0D0F14] border border-[#222733] p-6 sm:p-8 mb-8 flex flex-col sm:flex-row sm:items-end justify-between gap-4 shadow-xl">
         <div>
-          <div className="flex items-center gap-2 text-xs font-bold tracking-[2.5px] text-[#E10600] uppercase mb-1">
-            <Slashes size={18} />
+          <div className="inline-flex items-center gap-2 bg-[#161A22] border border-[#2B303C] px-3 py-1 rounded-sm text-xs font-bold tracking-[2.5px] text-[#E2E4E9] uppercase mb-2">
+            <Slashes size={18} className="text-[#E10600]" />
             <span>CONFIRM YOUR RACE SELECTION</span>
           </div>
-          <h1 className="font-['Barlow_Condensed',sans-serif] font-black italic text-4xl sm:text-5xl text-white uppercase leading-none">
+          <h1 className="font-['Barlow_Condensed',sans-serif] font-black italic text-4xl sm:text-5xl text-white uppercase leading-[1.12]">
             SHOPPING BAG <span className="text-[#E10600]">({cartCount} ITEMS)</span>
           </h1>
         </div>
         <Link
           href="/shop"
-          className="inline-flex items-center gap-2 text-xs font-bold text-[#8E939C] hover:text-white uppercase tracking-wider transition-colors"
+          className="inline-flex items-center gap-2 text-xs font-bold text-[#D1D5DB] hover:text-white uppercase tracking-wider transition-colors bg-[#14171E] border border-[#252A36] px-4 py-2"
         >
           <ArrowLeftIcon size={14} />
           <span>Continue Shopping</span>
