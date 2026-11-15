@@ -220,9 +220,9 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
   }
 
   return (
-    <div className="min-h-screen bg-[#08090B] text-white flex flex-col font-sans">
+    <div className="min-h-screen bg-[#080808] text-white flex flex-col font-sans">
       {/* Top Admin Control Bar */}
-      <header className="sticky top-0 z-40 bg-[#0F1115] border-b border-[#252930] px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
+      <header className="sticky top-0 z-40 bg-[#111111] border-b border-[#292929] px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
         {/* Brand */}
         <div className="flex items-center gap-3">
           <button
@@ -319,15 +319,69 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
       </header>
 
       {/* Main Admin Body */}
-      <div className="flex-1 flex overflow-hidden">
-        {/* Desktop Sidebar (Left) */}
-        <aside
-          className={`w-64 bg-[#0D0F13] border-r border-[#252930] flex-shrink-0 flex flex-col justify-between py-4 fixed lg:static inset-y-0 left-0 z-30 transition-transform lg:translate-x-0 ${
-            mobileNavOpen ? 'translate-x-0 top-[57px]' : '-translate-x-full'
-          }`}
-        >
+      <div className="flex-1 flex relative min-h-[calc(100vh-65px)]">
+        {/* Mobile Navigation Drawer (when open on screens < lg) */}
+        {mobileNavOpen && (
+          <div className="lg:hidden fixed inset-0 z-50 flex">
+            {/* Backdrop */}
+            <div
+              className="fixed inset-0 bg-black/85 backdrop-blur-sm"
+              onClick={() => setMobileNavOpen(false)}
+            />
+            {/* Drawer */}
+            <div className="relative w-[280px] max-w-[80vw] bg-[#111111] border-r border-[#292929] flex flex-col justify-between py-4 z-10 shadow-2xl h-full">
+              <div className="px-4 pb-3 border-b border-[#292929] flex items-center justify-between">
+                <span className="text-[10px] font-bold text-[#E10600] uppercase tracking-[2px]">
+                  CONTROL ROOM MENU
+                </span>
+                <button
+                  onClick={() => setMobileNavOpen(false)}
+                  className="p-1 text-[#858585] hover:text-white"
+                  aria-label="Close menu"
+                >
+                  <CloseIcon size={18} />
+                </button>
+              </div>
+
+              <div className="px-3 py-3 space-y-1 overflow-y-auto flex-1">
+                {ADMIN_NAV.map(item => {
+                  const active = pathname === item.href;
+                  return (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setMobileNavOpen(false)}
+                      className={`flex items-center gap-3 px-3 py-2.5 text-xs font-bold tracking-wider uppercase rounded transition-colors ${
+                        active
+                          ? 'bg-[#E10600] text-white shadow-md'
+                          : 'text-[#B8B8B8] hover:text-white hover:bg-[#151515]'
+                      }`}
+                    >
+                      <span className="text-base">{item.icon}</span>
+                      <span>{item.label}</span>
+                    </Link>
+                  );
+                })}
+              </div>
+
+              {/* User badge */}
+              <div className="p-4 border-t border-[#292929] mx-3 text-xs">
+                <div className="flex items-center gap-2 mb-1">
+                  <span className="w-2 h-2 rounded-full bg-emerald-400" />
+                  <strong className="text-white uppercase font-bold">Harsha (Owner)</strong>
+                </div>
+                <span className="text-[10px] text-[#858585] uppercase block">
+                  Role: System Administrator
+                </span>
+              </div>
+            </div>
+          </div>
+        )}
+
+        {/* Permanent Desktop Sidebar (Document flow, strictly side-by-side, NEVER overlaps content) */}
+        <aside className="hidden lg:flex w-[280px] min-w-[280px] bg-[#111111] border-r border-[#292929] flex-shrink-0 flex-col justify-between py-6">
           <div className="px-3 space-y-1 overflow-y-auto">
-            <span className="text-[9px] font-bold text-[#686D77] uppercase tracking-[2px] px-3 py-2 block">
+            <span className="text-[10px] font-bold text-[#858585] uppercase tracking-[2px] px-3 py-2 block">
               MANAGEMENT CONSOLE
             </span>
 
@@ -337,11 +391,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                 <Link
                   key={item.href}
                   href={item.href}
-                  onClick={() => setMobileNavOpen(false)}
                   className={`flex items-center gap-3 px-3 py-2.5 text-xs font-bold tracking-wider uppercase rounded transition-colors ${
                     active
                       ? 'bg-[#E10600] text-white shadow-md'
-                      : 'text-[#A5A8AF] hover:text-white hover:bg-[#15171C]'
+                      : 'text-[#B8B8B8] hover:text-white hover:bg-[#151515]'
                   }`}
                 >
                   <span className="text-base">{item.icon}</span>
@@ -352,12 +405,12 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </div>
 
           {/* Admin User Info Footer */}
-          <div className="p-4 border-t border-[#1C1F26] mx-3 text-xs">
+          <div className="p-4 border-t border-[#292929] mx-3 text-xs">
             <div className="flex items-center gap-2 mb-2">
               <span className="w-2 h-2 rounded-full bg-emerald-400" />
               <strong className="text-white uppercase font-bold">Harsha (Owner)</strong>
             </div>
-            <span className="text-[10px] text-[#7E8491] uppercase block">
+            <span className="text-[10px] text-[#858585] uppercase block">
               Role: System Administrator
             </span>
             <button
@@ -373,10 +426,10 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
           </div>
         </aside>
 
-        {/* Content Area */}
-        <main className="flex-1 overflow-y-auto p-4 sm:p-6 lg:p-8 bg-[#08090B]">
+        {/* Content Area - Dedicated column with min-w-0, NEVER OVERLAPPED */}
+        <div className="flex-1 min-w-0 overflow-y-auto p-4 sm:p-6 lg:p-8 bg-[#080808]">
           <div className="max-w-6xl mx-auto">{children}</div>
-        </main>
+        </div>
       </div>
     </div>
   );
