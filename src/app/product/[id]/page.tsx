@@ -53,13 +53,6 @@ export default function ProductDetailPage() {
     );
   }
 
-  const isApexSeries =
-    product.id.includes('apex-series') ||
-    product.id.includes('apex-line') ||
-    product.id.includes('rider-core') ||
-    product.id.includes('rider-focus') ||
-    product.id.includes('checker-evolution');
-
   const currentDisplayImage =
     activeImage === 'back' && product.backImage ? product.backImage : product.image;
 
@@ -85,8 +78,17 @@ export default function ProductDetailPage() {
           <span>/</span>
           <Link href="/shop" className="hover:text-white transition-colors">Shop</Link>
           <span>/</span>
-          <Link href={isApexSeries ? '/collections/apex-series' : '/drop-001'} className="hover:text-white transition-colors">
-            {isApexSeries ? 'Apex Series' : 'Drop 001'}
+          <Link
+            href={
+              ['apex-series-01', 'rider-core-03', 'rider-focus', 'apex-line-58', 'checker-evolution'].includes(product.id)
+                ? '/collections/apex-series'
+                : '/drop-001'
+            }
+            className="hover:text-white transition-colors"
+          >
+            {['apex-series-01', 'rider-core-03', 'rider-focus', 'apex-line-58', 'checker-evolution'].includes(product.id)
+              ? 'Apex Series'
+              : 'Drop 001'}
           </Link>
           <span>/</span>
           <span className="text-[#E10600]">{product.name}</span>
@@ -122,42 +124,31 @@ export default function ProductDetailPage() {
               />
             </div>
 
-            {/* Front / Back Switcher Buttons or Master Lookbook Tag */}
-            {product.backImage && product.backImage !== product.image ? (
-              <div className="grid grid-cols-2 gap-3">
-                <button
-                  type="button"
-                  onClick={() => setActiveImage('front')}
-                  className={`py-3 text-xs font-black tracking-widest uppercase border transition-all ${
-                    activeImage === 'front'
-                      ? 'border-[#E10600] bg-[#E10600] text-white shadow-md'
-                      : 'border-[#292929] bg-[#111111] text-[#B8B8B8] hover:text-white hover:border-white'
-                  }`}
-                >
-                  FRONT VIEW (CHEST EMBLEM)
-                </button>
-                <button
-                  type="button"
-                  onClick={() => setActiveImage('back')}
-                  className={`py-3 text-xs font-black tracking-widest uppercase border transition-all ${
-                    activeImage === 'back'
-                      ? 'border-[#E10600] bg-[#E10600] text-white shadow-md'
-                      : 'border-[#292929] bg-[#111111] text-[#B8B8B8] hover:text-white hover:border-white'
-                  }`}
-                >
-                  BACK VIEW (CIRCUIT ARTWORK)
-                </button>
-              </div>
-            ) : (
-              <div className="bg-[#111111] border border-[#292929] px-4 py-3 flex items-center justify-between text-xs">
-                <span className="font-bold tracking-wider text-[#B8B8B8] uppercase">
-                  COMPLETE RELEASE LOOKBOOK
-                </span>
-                <span className="text-[10px] text-[#E10600] font-black tracking-widest uppercase">
-                  FRONT & REAR TELEMETRY VIEW
-                </span>
-              </div>
-            )}
+            {/* Front / Back Switcher Buttons */}
+            <div className="grid grid-cols-2 gap-3">
+              <button
+                type="button"
+                onClick={() => setActiveImage('front')}
+                className={`py-3 text-xs font-black tracking-widest uppercase border transition-all ${
+                  activeImage === 'front'
+                    ? 'border-[#E10600] bg-[#E10600] text-white shadow-md'
+                    : 'border-[#292929] bg-[#111111] text-[#B8B8B8] hover:text-white hover:border-white'
+                }`}
+              >
+                FRONT VIEW (CHEST EMBLEM)
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveImage('back')}
+                className={`py-3 text-xs font-black tracking-widest uppercase border transition-all ${
+                  activeImage === 'back'
+                    ? 'border-[#E10600] bg-[#E10600] text-white shadow-md'
+                    : 'border-[#292929] bg-[#111111] text-[#B8B8B8] hover:text-white hover:border-white'
+                }`}
+              >
+                BACK VIEW (CIRCUIT ARTWORK)
+              </button>
+            </div>
 
             {/* Paddock Trust Badges */}
             <div className="grid grid-cols-3 gap-3 p-4 bg-[#111111] border border-[#292929] mt-2 text-center">
@@ -185,7 +176,7 @@ export default function ProductDetailPage() {
               {/* Category Eyebrow */}
               <div className="inline-flex items-center gap-2 bg-[#111111] border border-[#292929] px-3 py-1 rounded-sm text-[10px] font-bold tracking-[2.5px] text-[#FFFFFF] uppercase mb-3">
                 <span className="w-2.5 h-0.5 bg-[#E10600]" />
-                <span>APEXORA / {isApexSeries ? 'APEX SERIES' : 'DROP 001'}</span>
+                <span>APEXORA / DROP 001</span>
               </div>
 
               {/* Product Name */}

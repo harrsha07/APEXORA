@@ -50,9 +50,9 @@ export default function CollectionDetailPage() {
       </Link>
 
       {/* Collection Hero Banner */}
-      <div className="relative bg-[#111418] border border-[#252930] p-8 md:p-12 mb-12 overflow-hidden">
+      <div className="relative bg-[#151515] border border-[#292929] p-8 md:p-12 mb-12 overflow-hidden shadow-xl">
         <div
-          className="absolute inset-0 opacity-15 bg-cover bg-center"
+          className="absolute inset-0 opacity-20 bg-cover bg-center"
           style={{ backgroundImage: `url(${collection.bannerImage})` }}
         />
         <div className="relative z-10 max-w-2xl">
@@ -62,11 +62,37 @@ export default function CollectionDetailPage() {
           <h1 className="font-['Barlow_Condensed',sans-serif] font-black italic text-4xl sm:text-5xl md:text-6xl text-white uppercase leading-none">
             {collection.title}
           </h1>
-          <p className="text-xs md:text-sm text-[#C6C8CC] mt-3 leading-relaxed">
+          <p className="text-xs md:text-sm text-[#B8B8B8] mt-3 leading-relaxed">
             {collection.description}
           </p>
         </div>
       </div>
+
+      {/* Featured Master Showcase for Apex Series */}
+      {(collection.slug === 'apex-series' || collection.id === 'apex-series') && (
+        <div className="bg-[#151515] border border-[#292929] p-6 sm:p-8 mb-12 shadow-xl">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-6">
+            <div>
+              <span className="text-[10px] font-bold text-[#E10600] tracking-[2.5px] uppercase block mb-1">
+                DESIGN 04 / MASTER SHOWCASE
+              </span>
+              <h2 className="font-['Barlow_Condensed',sans-serif] font-black italic text-2xl sm:text-3xl text-white uppercase leading-tight">
+                CHECKER EVOLUTION &amp; 3D BUFF PUFF TEXTURE
+              </h2>
+            </div>
+            <p className="text-xs text-[#B8B8B8] max-w-md font-normal leading-relaxed">
+              Featuring 3D raised puff tactile print, 260 GSM premium combed cotton, and aerodynamic racing contours tested on track.
+            </p>
+          </div>
+          <div className="w-full bg-[#080808] border border-[#292929] overflow-hidden p-2">
+            <img
+              src="/images/apexora-checker-evolution.jpg"
+              alt="APEXORA Checker Evolution and 3D Buff Puff Texture Showcase"
+              className="w-full max-h-[500px] object-contain mx-auto"
+            />
+          </div>
+        </div>
+      )}
 
       {/* Products in Collection */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">

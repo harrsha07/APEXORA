@@ -70,11 +70,18 @@ export default function HomePage() {
                     {/* Primary Action CTA */}
                     <div className="flex flex-wrap items-center gap-4">
                       <Link
-                        href={section.ctaLink || '/drop-001'}
+                        href="/collections/apex-series"
                         className="px-8 py-4 bg-[#E10600] hover:bg-[#FF1E17] text-white font-['Barlow_Condensed',sans-serif] font-black italic text-base tracking-[2px] uppercase shadow-lg shadow-[#E10600]/30 inline-flex items-center gap-2 transition-all"
                       >
-                        <span>{section.ctaText || 'SHOP DROP 001'}</span>
+                        <span>EXPLORE APEX SERIES</span>
                         <ArrowUpRightIcon size={16} />
+                      </Link>
+                      <Link
+                        href={section.ctaLink || '/drop-001'}
+                        className="px-8 py-4 bg-[#111111] hover:bg-[#151515] border border-[#292929] hover:border-[#E10600] text-white font-['Barlow_Condensed',sans-serif] font-black italic text-base tracking-[2px] uppercase inline-flex items-center gap-2 transition-all"
+                      >
+                        <span>{section.ctaText || 'SHOP DROP 001'}</span>
+                        <ArrowRightIcon size={16} />
                       </Link>
                     </div>
                   </div>

@@ -153,9 +153,9 @@ const initialStoreState: StoreState = {
 
 const StoreContext = createContext<StoreContextType | null>(null);
 
-const STORAGE_KEY_PUBLISHED = 'apexora_store_published_v3';
-const STORAGE_KEY_DRAFT = 'apexora_store_draft_v3';
-const STORAGE_KEY_CART = 'apexora_cart_v3';
+const STORAGE_KEY_PUBLISHED = 'apexora_store_published_v2';
+const STORAGE_KEY_DRAFT = 'apexora_store_draft_v2';
+const STORAGE_KEY_CART = 'apexora_cart_v2';
 
 export function StoreProvider({ children }: { children: React.ReactNode }) {
   const [publishedState, setPublishedState] = useState<StoreState>(initialStoreState);
@@ -180,65 +180,59 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
   // Load from local storage or Supabase on mount
   useEffect(() => {
     try {
-      const savedPublished = localStorage.getItem(STORAGE_KEY_PUBLISHED) || localStorage.getItem('apexora_store_published_v2');
+      const mergeWithDefaults = (parsed: any): StoreState => {
+        const mergedProducts = [...(parsed.products || [])];
+        initialProducts.forEach(ip => {
+          if (!mergedProducts.some(p => p.id === ip.id)) {
+            mergedProducts.push(ip);
+          }
+        });
+
+        const mergedCollections = [...(parsed.collections || [])];
+        initialCollections.forEach(ic => {
+          if (!mergedCollections.some(c => c.id === ic.id)) {
+            mergedCollections.push(ic);
+          }
+        });
+
+        const mergedNav = [...(parsed.navigation || [])];
+        initialNavigation.forEach(inav => {
+          if (!mergedNav.some(n => n.id === inav.id)) {
+            mergedNav.push(inav);
+          }
+        });
+
+        const mergedMedia = [...(parsed.media || [])];
+        initialMedia.forEach(im => {
+          if (!mergedMedia.some(m => m.id === im.id)) {
+            mergedMedia.push(im);
+          }
+        });
+
+        return {
+          ...initialStoreState,
+          ...parsed,
+          products: mergedProducts,
+          collections: mergedCollections,
+          navigation: mergedNav,
+          media: mergedMedia
+        };
+      };
+
+      const savedPublished = localStorage.getItem(STORAGE_KEY_PUBLISHED);
       if (savedPublished) {
         const parsed = JSON.parse(savedPublished);
-        const existingProductIds = new Set((parsed.products || []).map((p: any) => p.id));
-        const mergedProducts = [
-          ...initialProducts.filter(p => !existingProductIds.has(p.id)),
-          ...(parsed.products || [])
-        ];
-        const existingColIds = new Set((parsed.collections || []).map((c: any) => c.id || c.slug));
-        const mergedCollections = [
-          ...initialCollections.filter(c => !existingColIds.has(c.id) && !existingColIds.has(c.slug)),
-          ...(parsed.collections || [])
-        ];
-        const mergedNavigation = parsed.navigation && parsed.navigation.length > 0
-          ? [
-              ...initialNavigation.filter(n => !parsed.navigation.some((pn: any) => pn.id === n.id)),
-              ...parsed.navigation
-            ]
-          : initialNavigation;
-
-        setPublishedState(prev => ({
-          ...prev,
-          ...parsed,
-          products: mergedProducts,
-          collections: mergedCollections,
-          navigation: mergedNavigation
-        }));
+        setPublishedState(mergeWithDefaults(parsed));
       }
-      const savedDraft = localStorage.getItem(STORAGE_KEY_DRAFT) || localStorage.getItem('apexora_store_draft_v2');
+      const savedDraft = localStorage.getItem(STORAGE_KEY_DRAFT);
       if (savedDraft) {
         const parsed = JSON.parse(savedDraft);
-        const existingProductIds = new Set((parsed.products || []).map((p: any) => p.id));
-        const mergedProducts = [
-          ...initialProducts.filter(p => !existingProductIds.has(p.id)),
-          ...(parsed.products || [])
-        ];
-        const existingColIds = new Set((parsed.collections || []).map((c: any) => c.id || c.slug));
-        const mergedCollections = [
-          ...initialCollections.filter(c => !existingColIds.has(c.id) && !existingColIds.has(c.slug)),
-          ...(parsed.collections || [])
-        ];
-        const mergedNavigation = parsed.navigation && parsed.navigation.length > 0
-          ? [
-              ...initialNavigation.filter(n => !parsed.navigation.some((pn: any) => pn.id === n.id)),
-              ...parsed.navigation
-            ]
-          : initialNavigation;
-
-        setDraftState(prev => ({
-          ...prev,
-          ...parsed,
-          products: mergedProducts,
-          collections: mergedCollections,
-          navigation: mergedNavigation
-        }));
+        setDraftState(mergeWithDefaults(parsed));
       } else if (savedPublished) {
-        setDraftState(JSON.parse(savedPublished));
+        const parsed = JSON.parse(savedPublished);
+        setDraftState(mergeWithDefaults(parsed));
       }
-      const savedCart = localStorage.getItem(STORAGE_KEY_CART) || localStorage.getItem('apexora_cart_v2');
+      const savedCart = localStorage.getItem(STORAGE_KEY_CART);
       if (savedCart) {
         setCart(JSON.parse(savedCart));
       }

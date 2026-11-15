@@ -6,13 +6,16 @@ import ProductCard from '@/components/ProductCard';
 import { SearchIcon, Slashes } from '@/components/icons';
 
 export default function ShopPage() {
-  const { products } = useStore();
+  const { products, collections } = useStore();
+  const [selectedCollection, setSelectedCollection] = useState<string>('ALL');
   const [selectedCategory, setSelectedCategory] = useState<string>('ALL');
   const [selectedColor, setSelectedColor] = useState<string>('ALL');
   const [sortBy, setSortBy] = useState<string>('featured');
   const [searchQuery, setSearchQuery] = useState<string>('');
 
   const activeProducts = useMemo(() => products.filter(p => p.active), [products]);
+
+  const activeCollections = useMemo(() => collections.filter(c => c.active), [collections]);
 
   const categories = useMemo(() => {
     const set = new Set(activeProducts.map(p => p.category));
@@ -27,6 +30,10 @@ export default function ShopPage() {
   const filteredProducts = useMemo(() => {
     return activeProducts
       .filter(p => {
+        if (selectedCollection !== 'ALL') {
+          const col = collections.find(c => c.id === selectedCollection || c.slug === selectedCollection);
+          if (col && !col.productIds.includes(p.id)) return false;
+        }
         if (selectedCategory !== 'ALL' && p.category !== selectedCategory) return false;
         if (selectedColor !== 'ALL' && p.color !== selectedColor) return false;
         if (searchQuery.trim()) {
@@ -45,7 +52,7 @@ export default function ShopPage() {
         if (sortBy === 'newest') return new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
         return (b.featured ? 1 : 0) - (a.featured ? 1 : 0);
       });
-  }, [activeProducts, selectedCategory, selectedColor, sortBy, searchQuery]);
+  }, [activeProducts, collections, selectedCollection, selectedCategory, selectedColor, sortBy, searchQuery]);
 
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -64,26 +71,56 @@ export default function ShopPage() {
       </div>
 
       {/* Filter & Sort Bar */}
-      <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 bg-[#151515] border border-[#292929] p-4 mb-8">
-        {/* Category Tabs */}
-        <div className="flex flex-wrap items-center gap-2">
-          <span className="text-[10px] font-bold text-[#858585] uppercase tracking-wider mr-1">CATEGORY:</span>
-          {categories.map(cat => (
+      <div className="flex flex-col gap-4 bg-[#151515] border border-[#292929] p-4 mb-8 shadow-xl">
+        {/* Collections Quick Filter */}
+        <div className="flex flex-wrap items-center gap-2 pb-3 border-b border-[#292929]">
+          <span className="text-[10px] font-bold text-[#E10600] uppercase tracking-wider mr-1">COLLECTION:</span>
+          <button
+            onClick={() => setSelectedCollection('ALL')}
+            className={`px-3 py-1 text-xs font-bold tracking-wider uppercase border transition-colors ${
+              selectedCollection === 'ALL'
+                ? 'bg-[#E10600] border-[#E10600] text-white shadow-md'
+                : 'bg-[#111111] border-[#292929] text-[#B8B8B8] hover:text-white hover:border-[#E10600]'
+            }`}
+          >
+            ALL
+          </button>
+          {activeCollections.map(col => (
             <button
-              key={cat}
-              onClick={() => setSelectedCategory(cat)}
-              className={`px-3 py-1.5 text-xs font-bold tracking-wider uppercase border transition-colors ${
-                selectedCategory === cat
+              key={col.id}
+              onClick={() => setSelectedCollection(col.id)}
+              className={`px-3 py-1 text-xs font-bold tracking-wider uppercase border transition-colors ${
+                selectedCollection === col.id
                   ? 'bg-[#E10600] border-[#E10600] text-white shadow-md'
                   : 'bg-[#111111] border-[#292929] text-[#B8B8B8] hover:text-white hover:border-[#E10600]'
               }`}
             >
-              {cat}
+              {col.id === 'apex-series' ? '★ ' + col.title.split('—')[0].trim() : col.title.split('—')[0].trim()}
             </button>
           ))}
         </div>
 
-        {/* Search & Sort Controls */}
+        {/* Categories & Search/Sort Row */}
+        <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4">
+          {/* Category Tabs */}
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-[10px] font-bold text-[#858585] uppercase tracking-wider mr-1">CATEGORY:</span>
+            {categories.map(cat => (
+              <button
+                key={cat}
+                onClick={() => setSelectedCategory(cat)}
+                className={`px-3 py-1.5 text-xs font-bold tracking-wider uppercase border transition-colors ${
+                  selectedCategory === cat
+                    ? 'bg-[#E10600] border-[#E10600] text-white shadow-md'
+                    : 'bg-[#111111] border-[#292929] text-[#B8B8B8] hover:text-white hover:border-[#E10600]'
+                }`}
+              >
+                {cat}
+              </button>
+            ))}
+          </div>
+
+          {/* Search & Sort Controls */}
         <div className="flex flex-wrap items-center gap-3">
           {/* Search input */}
           <div className="relative flex-1 sm:w-60">
@@ -110,6 +147,7 @@ export default function ShopPage() {
           </select>
         </div>
       </div>
+    </div>
 
       {/* Product Grid */}
       {filteredProducts.length === 0 ? (

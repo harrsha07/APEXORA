@@ -14,21 +14,6 @@ create table if not exists public.products (
 );
 -- Seed the three initial Drop 001 products so they can be edited in the admin panel.
 insert into public.products(name,subtitle,price,image_url,color,tag,description,active)
-select 'APEX SERIES 01','Precision & speed technical oversized T-shirt',1299,'/images/apexora-apex-series.jpg','Jet Black / Racing Red','01 / APEX SERIES','The signature APEX series flagship garment. Designed around Precision, Speed, and Control.',true
-where not exists(select 1 from public.products where name='APEX SERIES 01');
-insert into public.products(name,subtitle,price,image_url,color,tag,description,active)
-select 'APEX LINE 58','Apex trajectory racing oversized T-shirt',1399,'/images/apexora-apex-line-58.jpg','Circuit Black / Red','02 / APEX LINE','The line to the apex where precision, speed and control create the difference. Features #58 racing stripe.',true
-where not exists(select 1 from public.products where name='APEX LINE 58');
-insert into public.products(name,subtitle,price,image_url,color,tag,description,active)
-select 'RIDER CORE 03','Paddock helmet series oversized T-shirt',1299,'/images/apexora-rider-core.jpg','Stealth Black','03 / RIDER CORE','Focus. Discipline. Mindset. Premium heavyweight black canvas with aerodynamic helmet graphic.',true
-where not exists(select 1 from public.products where name='RIDER CORE 03');
-insert into public.products(name,subtitle,price,image_url,color,tag,description,active)
-select 'RIDER FOCUS','Telemetry crosshair oversized T-shirt',1199,'/images/apexora-rider-focus.jpg','Asphalt Black','04 / RIDER FOCUS','The rider''s mindset. RACE LEARN REPEAT sleeve typography and targeting visor crosshair graphics.',true
-where not exists(select 1 from public.products where name='RIDER FOCUS');
-insert into public.products(name,subtitle,price,image_url,color,tag,description,active)
-select 'CHECKER EVOLUTION 04','3D puff print checkered oversized T-shirt',1499,'/images/apexora-checker-evolution.jpg','Carbon Black / White','05 / EVOLUTION','From starting grid to checkered flag. Crafted in 260 GSM heavyweight cotton with 3D raised puff texture.',true
-where not exists(select 1 from public.products where name='CHECKER EVOLUTION 04');
-insert into public.products(name,subtitle,price,image_url,color,tag,description,active)
 select 'APEX ONE','Racing performance oversized T-shirt',1099,'/images/apex-one.jpg','Jet black','01 / RACE DNA','A bold track-inspired graphic built around speed, precision and the apex mindset.',true
 where not exists(select 1 from public.products where name='APEX ONE');
 insert into public.products(name,subtitle,price,image_url,color,tag,description,active)
@@ -37,6 +22,21 @@ where not exists(select 1 from public.products where name='REDLINE');
 insert into public.products(name,subtitle,price,image_url,color,tag,description,active)
 select 'APEX AFTER DARK','Night ride oversized T-shirt',1199,'/images/after-dark.jpg','Washed charcoal','03 / NIGHT EDITION','A darker night-ride graphic for the hours after the circuit lights go out.',true
 where not exists(select 1 from public.products where name='APEX AFTER DARK');
+insert into public.products(name,subtitle,price,image_url,color,tag,description,active)
+select 'APEX SERIES 01','Precision, speed and control oversized T-shirt',1199,'/images/apexora-apex-series.jpg','Jet black','01 / APEX SERIES','Engineered with aerodynamic racing red contour piping, chest APEXORA logo, sleeve checkered flags, and architectural APEX chevron back piece.',true
+where not exists(select 1 from public.products where name='APEX SERIES 01');
+insert into public.products(name,subtitle,price,image_url,color,tag,description,active)
+select 'RIDER CORE 03','Focus, discipline and mindset oversized T-shirt',1199,'/images/apexora-rider-core.jpg','Jet black','03 / RIDER CORE','Minimalist front racing emblem with subtle red sleeve accents paired with aerodynamic racing helmet back graphic cutting through air.',true
+where not exists(select 1 from public.products where name='RIDER CORE 03');
+insert into public.products(name,subtitle,price,image_url,color,tag,description,active)
+select 'RIDER FOCUS','The rider''s mindset technical oversized T-shirt',1299,'/images/apexora-rider-focus.jpg','Jet black','RIDER FOCUS','The rider''s mindset: focus, discipline and a constant drive to be faster than yesterday. Visor reticle target graphic on back.',true
+where not exists(select 1 from public.products where name='RIDER FOCUS');
+insert into public.products(name,subtitle,price,image_url,color,tag,description,active)
+select 'APEX LINE 58','Cornering telemetry oversized T-shirt',1299,'/images/apexora-apex-line-58.jpg','Jet black','APEX LINE 58','Dedicated to Harsha''s racing #58 with vertical racing livery and full-lean superbike cornering illustration.',true
+where not exists(select 1 from public.products where name='APEX LINE 58');
+insert into public.products(name,subtitle,price,image_url,color,tag,description,active)
+select 'CHECKER EVOLUTION','3D buff puff print oversized T-shirt',1399,'/images/apexora-checker-evolution.jpg','Jet black','04 / CHECKER EVOLUTION','From the starting grid to the checkered flag. Dynamic wrap-around checkered flag with 3D buff puff raised texture on 260 GSM heavyweight cotton.',true
+where not exists(select 1 from public.products where name='CHECKER EVOLUTION');
 
 alter table public.admin_users enable row level security;
 alter table public.products enable row level security;
