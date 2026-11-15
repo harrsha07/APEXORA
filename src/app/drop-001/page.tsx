@@ -22,15 +22,15 @@ export default function Drop001Page() {
               <Slashes size={18} className="text-[#E10600]" />
               <span>LIMITED RELEASE ARCHIVE</span>
             </div>
-            
+
             <h1 className="font-['Barlow_Condensed',sans-serif] font-black italic text-5xl sm:text-6xl md:text-7xl text-white tracking-normal uppercase leading-[1.08] mb-4">
               DROP 001 — <span className="text-[#E10600]">THE PURSUIT.</span>
             </h1>
-            
+
             <p className="text-base text-[#D1D5DB] leading-relaxed mb-6 font-normal">
               Three designs. One relentless mindset. APEXORA Drop 001 is engineered for those who live for the next corner. 240+ GSM ultra-heavyweight combed cotton cut in a signature boxy drop-shoulder oversized silhouette.
             </p>
-            
+
             <div className="flex flex-wrap items-center gap-4 text-xs font-bold tracking-widest uppercase text-[#9CA3AF] pt-4 border-t border-[#1E222D]">
               <span className="bg-[#14171E] px-3 py-1 border border-[#222733]">STATUS: <strong className="text-emerald-400">ACTIVE ON TRACK</strong></span>
               <span className="bg-[#14171E] px-3 py-1 border border-[#222733]">BATCH: <strong className="text-white">LIMITED RUN</strong></span>
