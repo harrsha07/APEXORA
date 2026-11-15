@@ -37,7 +37,7 @@ body {
 }
 
 main {
-  background-color: #080808;
+  background-color: transparent;
   color: #FFFFFF;
   min-height: calc(100vh - 120px);
 }

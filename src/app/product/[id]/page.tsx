@@ -413,7 +413,7 @@ export default function ProductDetailPage() {
                     <span className="text-[#E10600]">★★★★★</span>
                   </div>
                   <p className="text-xs text-[#B8B8B8] leading-relaxed">
-                    "The weight of this tee is unbelievable. Truly 240+ GSM heavyweight cotton. Wore it over my Dainese under-suit at Kari Motor Speedway and got compliments all weekend."
+                    "The weight of this T-shirt is unbelievable. Truly 240+ GSM heavyweight cotton. Wore it over my Dainese under-suit at Kari Motor Speedway and got compliments all weekend."
                   </p>
                 </div>
 
@@ -469,7 +469,7 @@ export default function ProductDetailPage() {
                   TECHNICAL MEASUREMENTS
                 </span>
                 <h3 className="font-['Barlow_Condensed',sans-serif] font-black italic text-2xl text-white uppercase">
-                  OVERSIZED TEE SIZE GUIDE
+                  OVERSIZED T-SHIRT SIZE GUIDE
                 </h3>
               </div>
               <button

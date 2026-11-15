@@ -44,7 +44,7 @@ create table if not exists public.products (
   back_image_url text default '',
   color text not null default 'Jet Black',
   tag text not null default '01 / RACE DNA',
-  category text not null default 'Oversized Tees',
+  category text not null default 'Oversized T-shirts',
   description text not null default '',
   specifications jsonb default '{"fit":"Oversized drop-shoulder","fabric":"100% Combed Cotton","weight":"240 GSM","print":"High-density screen print","origin":"Made in India","care":"Machine wash cold"}'::jsonb,
   sizes text[] default array['S', 'M', 'L', 'XL', 'XXL'],
@@ -326,10 +326,10 @@ create policy "Admins delete product images" on storage.objects for delete to au
 -- ==============================================================================
 insert into public.products (id, name, subtitle, price, compare_at_price, image_url, back_image_url, color, tag, category, description, sku, stock, active, featured, badge)
 values 
-  ('apex-one', 'APEX ONE', 'Racing performance oversized tee', 1099, 1499, '/images/apex-one.jpg', '/images/apex-one.jpg', 'Jet Black', '01 / RACE DNA', 'Oversized Tees', 'The definitive APEXORA launch garment. Cut in 240+ GSM combed cotton with high-density racing typography on chest and aggressive angular APEX race-craft graphic across back.', 'APX-001-BLK', 45, true, true, 'DROP 001 EXCLUSIVE'),
-  ('redline', 'REDLINE', 'Track series oversized tee', 999, 1399, '/images/redline.jpg', '/images/redline.jpg', 'Off White', '02 / TRACK SERIES', 'Oversized Tees', 'Raw pit-lane aesthetic. An off-white vintage canvas adorned with technical checkered flag motifs, tachometer redline gradients, and aerodynamic speed strokes.', 'APX-002-WHT', 38, true, true, 'BEST SELLER'),
-  ('after-dark', 'APEX AFTER DARK', 'Night ride oversized tee', 1199, 1699, '/images/after-dark.jpg', '/images/after-dark.jpg', 'Washed Charcoal', '03 / NIGHT EDITION', 'Oversized Tees', 'Washed charcoal acid-wash finish with a stealth minimalist chest emblem and a photorealistic midnight superbike racer graphic across the rear.', 'APX-003-CHR', 24, true, true, 'LIMITED RUN'),
-  ('circuit-series', 'CIRCUIT SERIES', 'Apex telemetry technical oversized tee', 1299, 1799, '/images/redline.jpg', '/images/apex-one.jpg', 'Matte Asphalt', '04 / TELEMETRY', 'Oversized Tees', 'Inspired by sector splits, apex speeds and circuit telemetry. Features technical circuit blueprint maps and racing sector delta times printed in micro-silver metallic ink.', 'APX-004-ASP', 50, true, false, 'NEW ARRIVAL')
+  ('apex-one', 'APEX ONE', 'Racing performance oversized T-shirt', 1099, 1499, '/images/apex-one.jpg', '/images/apex-one.jpg', 'Jet Black', '01 / RACE DNA', 'Oversized T-shirts', 'The definitive APEXORA launch garment. Cut in 240+ GSM combed cotton with high-density racing typography on chest and aggressive angular APEX race-craft graphic across back.', 'APX-001-BLK', 45, true, true, 'DROP 001 EXCLUSIVE'),
+  ('redline', 'REDLINE', 'Track series oversized T-shirt', 999, 1399, '/images/redline.jpg', '/images/redline.jpg', 'Off White', '02 / TRACK SERIES', 'Oversized T-shirts', 'Raw pit-lane aesthetic. An off-white vintage canvas adorned with technical checkered flag motifs, tachometer redline gradients, and aerodynamic speed strokes.', 'APX-002-WHT', 38, true, true, 'BEST SELLER'),
+  ('after-dark', 'APEX AFTER DARK', 'Night ride oversized T-shirt', 1199, 1699, '/images/after-dark.jpg', '/images/after-dark.jpg', 'Washed Charcoal', '03 / NIGHT EDITION', 'Oversized T-shirts', 'Washed charcoal acid-wash finish with a stealth minimalist chest emblem and a photorealistic midnight superbike racer graphic across the rear.', 'APX-003-CHR', 24, true, true, 'LIMITED RUN'),
+  ('circuit-series', 'CIRCUIT SERIES', 'Apex telemetry technical oversized T-shirt', 1299, 1799, '/images/redline.jpg', '/images/apex-one.jpg', 'Matte Asphalt', '04 / TELEMETRY', 'Oversized T-shirts', 'Inspired by sector splits, apex speeds and circuit telemetry. Features technical circuit blueprint maps and racing sector delta times printed in micro-silver metallic ink.', 'APX-004-ASP', 50, true, false, 'NEW ARRIVAL')
 on conflict (id) do nothing;
 
 -- Seed Settings Singleton

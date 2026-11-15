@@ -23,7 +23,7 @@ export default function HomePage() {
             return (
               <section
                 key={section.id}
-                className="relative bg-[#080808] border-b border-[#292929] overflow-hidden"
+                className="relative bg-transparent border-b border-[#292929] overflow-hidden"
               >
                 {/* Background Motorsport Gradients & Race Lines */}
                 <div 
@@ -99,7 +99,7 @@ export default function HomePage() {
               <section
                 key={section.id}
                 id="collection"
-                className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#292929] bg-[#080808]"
+                className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#292929] bg-transparent"
               >
                 <div className="max-w-7xl mx-auto">
                   {/* Clean Section Heading */}
@@ -140,7 +140,7 @@ export default function HomePage() {
             return (
               <section
                 key={section.id}
-                className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#292929] bg-[#080808]"
+                className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#292929] bg-transparent"
               >
                 <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
                   {/* Big Triple Racing Slash Accent */}
@@ -214,7 +214,7 @@ export default function HomePage() {
             return (
               <section
                 key={section.id}
-                className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#292929] bg-[#080808]"
+                className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#292929] bg-transparent"
               >
                 <div className="max-w-7xl mx-auto">
                   <div className="bg-[#151515] border border-[#292929] p-6 sm:p-8 mb-10 flex flex-col md:flex-row md:items-end justify-between gap-4">
@@ -270,7 +270,7 @@ export default function HomePage() {
             return (
               <section
                 key={section.id}
-                className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#292929] bg-[#080808]"
+                className="py-16 md:py-24 px-4 sm:px-6 lg:px-8 border-b border-[#292929] bg-transparent"
               >
                 <div className="max-w-7xl mx-auto bg-[#151515] border border-[#292929] p-8 sm:p-10 md:p-12 shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8">
                   <div>

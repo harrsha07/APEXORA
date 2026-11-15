@@ -93,7 +93,7 @@ export default function SearchModal() {
                   No products found for "{query}"
                 </p>
                 <p className="text-xs mt-1">
-                  Try searching for "APEX ONE", "REDLINE", or "TEE".
+                  Try searching for "APEX ONE", "REDLINE", or "T-SHIRT".
                 </p>
               </div>
             ) : (

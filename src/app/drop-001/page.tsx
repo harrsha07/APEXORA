@@ -15,7 +15,7 @@ export default function Drop001Page() {
   return (
     <div className="flex flex-col">
       {/* Drop Header Banner with Solid Dark Plate */}
-      <section className="bg-[#080808] border-b border-[#292929] py-16 md:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
+      <section className="bg-transparent border-b border-[#292929] py-16 md:py-24 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="max-w-3xl bg-[#151515] border border-[#292929] p-8 sm:p-10 md:p-12 shadow-2xl">
             <div className="inline-flex items-center gap-2 bg-[#111111] border border-[#292929] px-3.5 py-1.5 rounded-sm text-xs font-bold tracking-[3px] text-white uppercase mb-4">

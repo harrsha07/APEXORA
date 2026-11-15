@@ -208,7 +208,53 @@ export default function WebsiteCustomizationPage() {
             </div>
           </div>
 
-          {/* 4. Top Announcement Bar */}
+          {/* 4. Global Motorsport Background Image */}
+          <div className="bg-[#111418] border border-[#252930] p-6 space-y-4">
+            <h2 className="font-['Barlow_Condensed',sans-serif] font-black italic text-xl text-white uppercase border-b border-[#252930] pb-2">
+              SITE-WIDE MOTORSPORT BACKGROUND IMAGE
+            </h2>
+            <p className="text-xs text-[#8E939C]">
+              Applied across all store pages with a dark racing gradient overlay to guarantee text legibility.
+            </p>
+
+            <div className="space-y-3">
+              <div>
+                <label className="text-[10px] font-bold text-[#8E939C] uppercase block mb-1">
+                  BACKGROUND IMAGE PRESET
+                </label>
+                <select
+                  value={settings.backgroundImage || '/images/apexora-track-curb-bg.png'}
+                  onChange={e => handleChange('backgroundImage', e.target.value)}
+                  className="w-full bg-[#15171C] border border-[#2B2F38] text-white text-xs p-2.5 outline-none font-bold"
+                >
+                  <option value="/images/apexora-track-curb-bg.png">
+                    01. Racing Track Curb + Checkered Flag & Carbon Texture (Default)
+                  </option>
+                  <option value="/images/apexora-superbike-paddock.jpg">
+                    02. APEXORA Superbike Paddock Grandstand
+                  </option>
+                  <option value="/images/apexora-night-track-bg.png">
+                    03. Night Circuit Light Trails & Red Apex Kerb
+                  </option>
+                </select>
+              </div>
+
+              <div>
+                <label className="text-[10px] font-bold text-[#8E939C] uppercase block mb-1">
+                  CUSTOM IMAGE URL (OPTIONAL)
+                </label>
+                <input
+                  type="text"
+                  value={settings.backgroundImage || ''}
+                  onChange={e => handleChange('backgroundImage', e.target.value)}
+                  placeholder="/images/apexora-track-curb-bg.png"
+                  className="w-full bg-[#15171C] border border-[#2B2F38] text-white text-xs p-2.5 outline-none tracking-wider"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* 5. Top Announcement Bar */}
           <div className="bg-[#111418] border border-[#252930] p-6 space-y-4">
             <div className="flex items-center justify-between border-b border-[#252930] pb-2">
               <h2 className="font-['Barlow_Condensed',sans-serif] font-black italic text-xl text-white uppercase">

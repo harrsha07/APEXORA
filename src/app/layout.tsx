@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: 'APEXORA — Motorsport Culture by Harsha',
   description: 'Built for speed. Defined by culture. Premium motorsport streetwear and racing performance apparel.',
   applicationName: 'APEXORA Motorsport Culture',
-  keywords: ['motorsport', 'streetwear', 'racing apparel', 'oversized tee', 'motogp', 'APEXORA', 'Harsha'],
+  keywords: ['motorsport', 'streetwear', 'racing apparel', 'oversized T-shirt', 'motogp', 'APEXORA', 'Harsha'],
   openGraph: {
     title: 'APEXORA — Motorsport Culture by Harsha',
     description: 'Built for speed. Defined by culture. Drop 001 — The Pursuit is now live.',

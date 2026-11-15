@@ -38,13 +38,26 @@ export default function StoreShell({ children }: { children: React.ReactNode }) 
     );
   }
 
+  const bgImage = settings.backgroundImage || '/images/apexora-track-curb-bg.png';
+
   return (
-    <div className="min-h-screen flex flex-col bg-[#080808] text-white selection:bg-[#E10600] selection:text-white">
+    <div className="min-h-screen flex flex-col bg-[#080808] text-white selection:bg-[#E10600] selection:text-white relative">
+      {/* Universal Fixed Motorsport Background Image for Every Page */}
+      <div 
+        className="fixed inset-0 pointer-events-none z-0 bg-cover bg-center bg-no-repeat transition-opacity duration-700"
+        style={{
+          backgroundImage: `linear-gradient(180deg, rgba(8, 8, 8, 0.72) 0%, rgba(8, 8, 8, 0.88) 100%), url('${bgImage}')`,
+          backgroundAttachment: 'fixed',
+          backgroundPosition: 'center top',
+          backgroundSize: 'cover'
+        }}
+      />
+
       {!isAdminRoute && <PreviewBanner />}
       {!isAdminRoute && <AnnouncementBar />}
       {!isAdminRoute && <Header />}
 
-      <main className="flex-1 bg-[#080808] text-white">{children}</main>
+      <main className="flex-1 text-white relative z-10">{children}</main>
 
       {!isAdminRoute && <Footer />}
 

@@ -15,7 +15,7 @@ export const initialProducts: Product[] = [
   {
     id: 'apex-one',
     name: 'APEX ONE',
-    subtitle: 'Racing performance oversized tee',
+    subtitle: 'Racing performance oversized T-shirt',
     price: 1099,
     compareAtPrice: 1499,
     image: '/images/apex-one.jpg',
@@ -23,7 +23,7 @@ export const initialProducts: Product[] = [
     gallery: ['/images/apex-one.jpg', '/images/drop-001-reference.jpg'],
     color: 'Jet Black',
     tag: '01 / RACE DNA',
-    category: 'Oversized Tees',
+    category: 'Oversized T-shirts',
     description: 'The definitive APEXORA launch garment. Cut in a heavy 240 GSM combed cotton with high-density racing typography on the front chest and an aggressive angular APEX race-craft graphic stretching across the back shoulders. Built for razor-sharp track sessions and daily street presence.',
     specifications: {
       fit: 'Boxy drop-shoulder oversized fit',
@@ -44,7 +44,7 @@ export const initialProducts: Product[] = [
   {
     id: 'redline',
     name: 'REDLINE',
-    subtitle: 'Track series oversized tee',
+    subtitle: 'Track series oversized T-shirt',
     price: 999,
     compareAtPrice: 1399,
     image: '/images/redline.jpg',
@@ -52,7 +52,7 @@ export const initialProducts: Product[] = [
     gallery: ['/images/redline.jpg', '/images/drop-001-reference.jpg'],
     color: 'Off White',
     tag: '02 / TRACK SERIES',
-    category: 'Oversized Tees',
+    category: 'Oversized T-shirts',
     description: 'Raw pit-lane aesthetic. An off-white vintage canvas adorned with technical checkered flag motifs, tachometer redline gradients, and aerodynamic speed strokes. Designed to mirror the intensity of running on the rev-limiter.',
     specifications: {
       fit: 'Relaxed street oversized silhouette',
@@ -73,7 +73,7 @@ export const initialProducts: Product[] = [
   {
     id: 'after-dark',
     name: 'APEX AFTER DARK',
-    subtitle: 'Night ride oversized tee',
+    subtitle: 'Night ride oversized T-shirt',
     price: 1199,
     compareAtPrice: 1699,
     image: '/images/after-dark.jpg',
@@ -81,7 +81,7 @@ export const initialProducts: Product[] = [
     gallery: ['/images/after-dark.jpg', '/images/drop-001-reference.jpg'],
     color: 'Washed Charcoal',
     tag: '03 / NIGHT EDITION',
-    category: 'Oversized Tees',
+    category: 'Oversized T-shirts',
     description: 'When the circuit floodlights turn off and the city expressways open up. Washed charcoal acid-wash finish with a stealth minimalist chest emblem and a photorealistic midnight superbike racer graphic across the rear. Subtle reflective red racing highlights.',
     specifications: {
       fit: 'Oversized drop-shoulder profile',
@@ -102,7 +102,7 @@ export const initialProducts: Product[] = [
   {
     id: 'circuit-series',
     name: 'CIRCUIT SERIES',
-    subtitle: 'Apex telemetry technical oversized tee',
+    subtitle: 'Apex telemetry technical oversized T-shirt',
     price: 1299,
     compareAtPrice: 1799,
     image: '/images/redline.jpg',
@@ -110,7 +110,7 @@ export const initialProducts: Product[] = [
     gallery: ['/images/redline.jpg', '/images/apexora-racing-hero.jpg'],
     color: 'Matte Asphalt',
     tag: '04 / TELEMETRY',
-    category: 'Oversized Tees',
+    category: 'Oversized T-shirts',
     description: 'Inspired by sector splits, apex speeds and circuit telemetry. Features technical circuit blueprint maps and racing sector delta times printed in micro-silver metallic ink on heavyweight asphalt cotton.',
     specifications: {
       fit: 'Signature motorsport streetwear cut',
@@ -147,7 +147,7 @@ export const initialCollections: Collection[] = [
     slug: 'rider-series',
     title: 'RIDER SERIES',
     tagline: 'ENGINEERED FOR THE COCKPIT',
-    description: 'High-density cotton tees and performance layers designed for riders who demand durability without sacrificing style.',
+    description: 'High-density cotton T-shirts and performance layers designed for riders who demand durability without sacrificing style.',
     bannerImage: '/images/after-dark.jpg',
     productIds: ['after-dark', 'apex-one'],
     active: true,
@@ -195,7 +195,8 @@ export const initialSettings: WebsiteSettings = {
   youtubeUrl: 'https://www.youtube.com/@harrsha.58',
   businessAddress: 'APEXORA Motorsports Culture, 42 Circuit View, Indiranagar, Bengaluru, Karnataka 560038, India',
   maintenanceMode: false,
-  headerHeight: 82
+  headerHeight: 82,
+  backgroundImage: '/images/apexora-track-curb-bg.png'
 };
 
 export const initialHomepageSections: HomepageSection[] = [
@@ -210,7 +211,7 @@ export const initialHomepageSections: HomepageSection[] = [
     ctaLink: '/drop-001',
     secondaryCtaText: 'VIEW LOOKBOOK',
     secondaryCtaLink: '#collection',
-    backgroundImage: '/images/apexora-racing-hero.jpg',
+    backgroundImage: '/images/apexora-superbike-paddock.jpg',
     visible: true,
     order: 1
   },
@@ -588,7 +589,7 @@ export const initialMedia: MediaItem[] = [
     url: '/images/apex-one.jpg',
     size: '50.6 KB',
     format: 'JPG',
-    altText: 'APEX ONE Jet Black Oversized Tee front and back visual',
+    altText: 'APEX ONE Jet Black Oversized T-shirt front and back visual',
     category: 'products',
     uploadedAt: '2026-01-10'
   },
@@ -598,7 +599,7 @@ export const initialMedia: MediaItem[] = [
     url: '/images/redline.jpg',
     size: '59.3 KB',
     format: 'JPG',
-    altText: 'REDLINE Off White Track Series Oversized Tee front and back visual',
+    altText: 'REDLINE Off White Track Series Oversized T-shirt front and back visual',
     category: 'products',
     uploadedAt: '2026-01-12'
   },
@@ -608,7 +609,7 @@ export const initialMedia: MediaItem[] = [
     url: '/images/after-dark.jpg',
     size: '60.8 KB',
     format: 'JPG',
-    altText: 'APEX AFTER DARK Washed Charcoal Night Ride Tee front and back visual',
+    altText: 'APEX AFTER DARK Washed Charcoal Night Ride T-shirt front and back visual',
     category: 'products',
     uploadedAt: '2026-01-15'
   },
@@ -631,5 +632,25 @@ export const initialMedia: MediaItem[] = [
     altText: 'APEXORA Drop 001 master design board reference',
     category: 'lookbook',
     uploadedAt: '2026-01-08'
+  },
+  {
+    id: 'med-6',
+    name: 'apexora-track-curb-bg.png',
+    url: '/images/apexora-track-curb-bg.png',
+    size: '52.6 KB',
+    format: 'PNG',
+    altText: 'APEXORA Racing Track Curb with Checkered Flag and Carbon Texture',
+    category: 'banners',
+    uploadedAt: '2026-02-01'
+  },
+  {
+    id: 'med-7',
+    name: 'apexora-superbike-paddock.jpg',
+    url: '/images/apexora-superbike-paddock.jpg',
+    size: '243 KB',
+    format: 'JPG',
+    altText: 'APEXORA Superbike on wet starting grid with pit straight grandstand',
+    category: 'banners',
+    uploadedAt: '2026-02-01'
   }
 ];

@@ -217,7 +217,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
               backImage: p.back_image_url || p.image_url || '/images/apex-one.jpg',
               color: p.color || 'Jet Black',
               tag: p.tag || '01 / RACE DNA',
-              category: p.category || 'Oversized Tees',
+              category: p.category || 'Oversized T-shirts',
               description: p.description || '',
               specifications: p.specifications || {
                 fit: 'Oversized drop-shoulder fit',

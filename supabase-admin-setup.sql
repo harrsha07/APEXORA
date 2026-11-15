@@ -14,13 +14,13 @@ create table if not exists public.products (
 );
 -- Seed the three initial Drop 001 products so they can be edited in the admin panel.
 insert into public.products(name,subtitle,price,image_url,color,tag,description,active)
-select 'APEX ONE','Racing performance oversized tee',1099,'/images/apex-one.jpg','Jet black','01 / RACE DNA','A bold track-inspired graphic built around speed, precision and the apex mindset.',true
+select 'APEX ONE','Racing performance oversized T-shirt',1099,'/images/apex-one.jpg','Jet black','01 / RACE DNA','A bold track-inspired graphic built around speed, precision and the apex mindset.',true
 where not exists(select 1 from public.products where name='APEX ONE');
 insert into public.products(name,subtitle,price,image_url,color,tag,description,active)
-select 'REDLINE','Track series oversized tee',999,'/images/redline.jpg','Off white','02 / TRACK SERIES','A clean off-white base with high-contrast REDLINE graphics and racing details.',true
+select 'REDLINE','Track series oversized T-shirt',999,'/images/redline.jpg','Off white','02 / TRACK SERIES','A clean off-white base with high-contrast REDLINE graphics and racing details.',true
 where not exists(select 1 from public.products where name='REDLINE');
 insert into public.products(name,subtitle,price,image_url,color,tag,description,active)
-select 'APEX AFTER DARK','Night ride oversized tee',1199,'/images/after-dark.jpg','Washed charcoal','03 / NIGHT EDITION','A darker night-ride graphic for the hours after the circuit lights go out.',true
+select 'APEX AFTER DARK','Night ride oversized T-shirt',1199,'/images/after-dark.jpg','Washed charcoal','03 / NIGHT EDITION','A darker night-ride graphic for the hours after the circuit lights go out.',true
 where not exists(select 1 from public.products where name='APEX AFTER DARK');
 
 alter table public.admin_users enable row level security;

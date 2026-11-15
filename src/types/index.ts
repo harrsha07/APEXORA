@@ -89,6 +89,7 @@ export type WebsiteSettings = {
   businessAddress: string;
   maintenanceMode: boolean;
   headerHeight: number;
+  backgroundImage?: string;
 };
 
 export type HomepageSection = {

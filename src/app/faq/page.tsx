@@ -6,7 +6,7 @@ import { Slashes, ChevronDownIcon } from '@/components/icons';
 const FAQS = [
   {
     q: 'WHAT IS THE FIT OF APEXORA GARMENTS?',
-    a: 'All APEXORA Drop 001 T-shirts feature an authentic boxy, drop-shoulder oversized streetwear fit. If you want a classic relaxed oversized look, choose your regular standard size (e.g. if you normally wear L in regular tees, order L in APEXORA). If you prefer a snug or athletic fit, order one size down.'
+    a: 'All APEXORA Drop 001 T-shirts feature an authentic boxy, drop-shoulder oversized streetwear fit. If you want a classic relaxed oversized look, choose your regular standard size (e.g. if you normally wear L in regular T-shirts, order L in APEXORA). If you prefer a snug or athletic fit, order one size down.'
   },
   {
     q: 'WHAT FABRIC WEIGHT DO YOU USE?',

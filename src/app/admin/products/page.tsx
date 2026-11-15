@@ -24,7 +24,7 @@ const BLANK_PRODUCT: Product = {
   backImage: '/images/apex-one.jpg',
   color: 'Jet Black',
   tag: '01 / RACE DNA',
-  category: 'Oversized Tees',
+  category: 'Oversized T-shirts',
   description: 'Heavyweight 240+ GSM combed cotton cut in a signature boxy drop-shoulder oversized silhouette.',
   specifications: {
     fit: 'Boxy drop-shoulder oversized fit',
@@ -139,7 +139,7 @@ export default function ProductManagerPage() {
               type="text"
               value={form.subtitle}
               onChange={e => setForm({ ...form, subtitle: e.target.value })}
-              placeholder="Racing performance oversized tee"
+              placeholder="Racing performance oversized T-shirt"
               className="w-full bg-[#15171C] border border-[#2B2F38] text-white text-xs p-2.5 outline-none tracking-wider"
             />
           </div>

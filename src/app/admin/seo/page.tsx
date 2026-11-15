@@ -10,7 +10,7 @@ export default function SEOManagementPage() {
   const [seoForm, setSeoForm] = useState({
     metaTitle: 'APEXORA — Motorsport Culture by Harsha',
     metaDescription: 'Built for speed. Defined by culture. Premium motorsport streetwear and racing performance apparel. Drop 001 is now live.',
-    keywords: 'motorsport, streetwear, racing apparel, oversized tee, superbike, APEXORA, Harsha, Drop 001',
+    keywords: 'motorsport, streetwear, racing apparel, oversized T-shirt, superbike, APEXORA, Harsha, Drop 001',
     ogImage: '/images/apexora-racing-hero.jpg',
     canonicalUrl: 'https://apexora.store',
     robotsIndex: true,
