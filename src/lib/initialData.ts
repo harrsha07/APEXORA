@@ -13,6 +13,151 @@ import {
 
 export const initialProducts: Product[] = [
   {
+    id: 'apex-series-01',
+    name: 'APEX SERIES 01',
+    subtitle: 'Precision & speed technical oversized T-shirt',
+    price: 1299,
+    compareAtPrice: 1799,
+    image: '/images/apexora-apex-series.jpg',
+    backImage: '/images/apexora-apex-series.jpg',
+    gallery: ['/images/apexora-apex-series.jpg'],
+    color: 'Jet Black / Racing Red',
+    tag: '01 / APEX SERIES',
+    category: 'Oversized T-shirts',
+    description: 'The signature APEX series flagship garment. Designed around the core tenets of motorsport: Precision, Speed, and Control. Features aerodynamic red contour piping across the torso, sleeve checkered accents, and a massive geometric APEX emblem in dark metallic sheen down the rear spine.',
+    specifications: {
+      fit: 'Signature drop-shoulder oversized streetwear fit',
+      fabric: '100% Super-Combed Ring-Spun Cotton',
+      weight: '260 GSM Ultra-Heavyweight',
+      print: 'Dual-pass High Density print + Racing Red contour piping',
+      origin: 'Designed in India · Track Tested',
+      care: 'Machine wash cold inside-out · Do not iron direct on graphic'
+    },
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    sku: 'APX-SER-01',
+    stock: 58,
+    active: true,
+    featured: true,
+    badge: 'FLAGSHIP RELEASE',
+    createdAt: '2026-02-15T10:00:00Z'
+  },
+  {
+    id: 'apex-line-58',
+    name: 'APEX LINE 58',
+    subtitle: 'Apex trajectory racing oversized T-shirt',
+    price: 1399,
+    compareAtPrice: 1899,
+    image: '/images/apexora-apex-line-58.jpg',
+    backImage: '/images/apexora-apex-line-58.jpg',
+    gallery: ['/images/apexora-apex-line-58.jpg'],
+    color: 'Circuit Black / Red',
+    tag: '02 / APEX LINE',
+    category: 'Oversized T-shirts',
+    description: 'The line to the apex — where precision, speed and control create the difference. Dedicated to the relentless search for the fastest trajectory through every corner. Features the iconic #58 racing stripe over the shoulder and an aggressive full-lean superbike artwork across the back.',
+    specifications: {
+      fit: 'Boxy oversized racing silhouette',
+      fabric: '100% Premium Combed Cotton Jersey',
+      weight: '260 GSM Heavyweight',
+      print: 'Discharge Screenprint + Micro-Ribbed #58 Detailing',
+      origin: 'Engineered in Bengaluru, India',
+      care: 'Gentle cold wash · Do not tumble dry'
+    },
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    sku: 'APX-LN-058',
+    stock: 42,
+    active: true,
+    featured: true,
+    badge: 'RIDER #58 EDITION',
+    createdAt: '2026-02-15T10:00:00Z'
+  },
+  {
+    id: 'rider-core-03',
+    name: 'RIDER CORE 03',
+    subtitle: 'Paddock helmet series oversized T-shirt',
+    price: 1299,
+    compareAtPrice: 1799,
+    image: '/images/apexora-rider-core.jpg',
+    backImage: '/images/apexora-rider-core.jpg',
+    gallery: ['/images/apexora-rider-core.jpg'],
+    color: 'Stealth Black',
+    tag: '03 / RIDER CORE',
+    category: 'Oversized T-shirts',
+    description: 'Focus. Discipline. Mindset. Built for the rider whose focus never breaks. Premium heavyweight black canvas highlighting a high-definition metallic aerodynamic helmet graphic on the back with an aggressive red speed trail and signature sleeve bands.',
+    specifications: {
+      fit: 'Signature drop-shoulder oversized streetwear fit',
+      fabric: '100% Super-Combed Cotton',
+      weight: '260 GSM Heavyweight',
+      print: 'High-Definition Sublimated Graphic + Red Foil Detailing',
+      origin: 'Crafted in India · Paddock Approved',
+      care: 'Wash inside out with similar darks'
+    },
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    sku: 'APX-RC-003',
+    stock: 35,
+    active: true,
+    featured: true,
+    badge: 'CORE SERIES',
+    createdAt: '2026-02-15T10:00:00Z'
+  },
+  {
+    id: 'rider-focus',
+    name: 'RIDER FOCUS',
+    subtitle: 'Telemetry crosshair oversized T-shirt',
+    price: 1199,
+    compareAtPrice: 1699,
+    image: '/images/apexora-rider-focus.jpg',
+    backImage: '/images/apexora-rider-focus.jpg',
+    gallery: ['/images/apexora-rider-focus.jpg'],
+    color: 'Asphalt Black',
+    tag: '04 / RIDER FOCUS',
+    category: 'Oversized T-shirts',
+    description: 'The rider\'s mindset — focus, discipline and a constant drive to be faster than yesterday. Features signature "RACE LEARN REPEAT" sleeve typography and targeting crosshair graphics framing the rider\'s visor for laser-like focus on the racing line.',
+    specifications: {
+      fit: 'Relaxed drop-shoulder oversized streetwear profile',
+      fabric: '100% Combed Compact Cotton',
+      weight: '260 GSM Heavyweight',
+      print: 'Dual-Pass Rubberized Screenprint',
+      origin: 'Made in India',
+      care: 'Machine wash cold · Hang dry in shade'
+    },
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    sku: 'APX-RF-004',
+    stock: 48,
+    active: true,
+    featured: true,
+    badge: 'BEST SELLER',
+    createdAt: '2026-02-15T10:00:00Z'
+  },
+  {
+    id: 'checker-evolution',
+    name: 'CHECKER EVOLUTION 04',
+    subtitle: '3D puff print checkered oversized T-shirt',
+    price: 1499,
+    compareAtPrice: 1999,
+    image: '/images/apexora-checker-evolution.jpg',
+    backImage: '/images/apexora-checker-evolution.jpg',
+    gallery: ['/images/apexora-checker-evolution.jpg'],
+    color: 'Carbon Black / White',
+    tag: '05 / EVOLUTION',
+    category: 'Oversized T-shirts',
+    description: 'From the starting grid to the checkered flag, it\'s a journey of evolution. Crafted in 260 GSM heavyweight premium cotton with revolutionary Buff (Puff) 3D raised texture print that brings the checkered flag to tactile life. Built for speed, defined by motorsport culture.',
+    specifications: {
+      fit: 'Heavyweight oversized boxy fit',
+      fabric: '100% Premium Heavyweight Combed Cotton',
+      weight: '260 GSM Heavyweight',
+      print: '3D Raised Buff (Puff) Print with Racing Red Accents',
+      origin: 'Engineered in India',
+      care: 'Cold wash inside out · Do not tumble dry · Do not iron print'
+    },
+    sizes: ['S', 'M', 'L', 'XL', 'XXL'],
+    sku: 'APX-EV-005',
+    stock: 60,
+    active: true,
+    featured: true,
+    badge: '3D PUFF TEXTURE',
+    createdAt: '2026-02-15T10:00:00Z'
+  },
+  {
     id: 'apex-one',
     name: 'APEX ONE',
     subtitle: 'Racing performance oversized T-shirt',
@@ -132,6 +277,17 @@ export const initialProducts: Product[] = [
 
 export const initialCollections: Collection[] = [
   {
+    id: 'apex-series',
+    slug: 'apex-series',
+    title: 'APEX SERIES — SPEED & CONTROL',
+    tagline: 'PRECISION / SPEED / CONTROL',
+    description: 'From the starting grid to the checkered flag. Five iconic heavyweight oversized T-shirts engineered with 260 GSM combed cotton, authentic paddock telemetry, 3D puff checkered textures, and high-action superbike graphics.',
+    bannerImage: '/images/apexora-checker-evolution.jpg',
+    productIds: ['apex-series-01', 'apex-line-58', 'rider-core-03', 'rider-focus', 'checker-evolution'],
+    active: true,
+    order: 1
+  },
+  {
     id: 'drop-001',
     slug: 'drop-001',
     title: 'DROP 001 — THE PURSUIT',
@@ -140,7 +296,7 @@ export const initialCollections: Collection[] = [
     bannerImage: '/images/apexora-racing-hero.jpg',
     productIds: ['apex-one', 'redline', 'after-dark', 'circuit-series'],
     active: true,
-    order: 1
+    order: 2
   },
   {
     id: 'rider-series',
@@ -148,10 +304,10 @@ export const initialCollections: Collection[] = [
     title: 'RIDER SERIES',
     tagline: 'ENGINEERED FOR THE COCKPIT',
     description: 'High-density cotton T-shirts and performance layers designed for riders who demand durability without sacrificing style.',
-    bannerImage: '/images/after-dark.jpg',
-    productIds: ['after-dark', 'apex-one'],
+    bannerImage: '/images/apexora-rider-core.jpg',
+    productIds: ['rider-core-03', 'rider-focus', 'after-dark', 'apex-one'],
     active: true,
-    order: 2
+    order: 3
   },
   {
     id: 'track-essentials',
@@ -159,10 +315,10 @@ export const initialCollections: Collection[] = [
     title: 'TRACK ESSENTIALS',
     tagline: 'RACE DAY PREPARATION',
     description: 'Minimalist graphics and bold racing red contrasts inspired by international paddock culture and telemetry metrics.',
-    bannerImage: '/images/redline.jpg',
-    productIds: ['redline', 'circuit-series'],
+    bannerImage: '/images/apexora-apex-line-58.jpg',
+    productIds: ['apex-line-58', 'checker-evolution', 'redline', 'circuit-series'],
     active: true,
-    order: 3
+    order: 4
   }
 ];
 
@@ -173,9 +329,9 @@ export const initialSettings: WebsiteSettings = {
   logoUrl: '',
   mobileLogoUrl: '',
   faviconUrl: '',
-  announcementText: 'DROP 001 — THE PURSUIT',
-  announcementSubtext: 'MOTORSPORT CULTURE - MADE FOR EVERYDAY',
-  announcementLink: '/drop-001',
+  announcementText: 'NEW COLLECTION — APEX SERIES DROP',
+  announcementSubtext: '5 ICONIC DESIGNS · 260 GSM OVERSIZED T-SHIRTS · 3D PUFF TEXTURE',
+  announcementLink: '/collections/apex-series',
   announcementActive: true,
   primaryColor: '#08090B',
   secondaryColor: '#111418',
@@ -279,16 +435,17 @@ export const initialHomepageSections: HomepageSection[] = [
 export const initialNavigation: NavigationItem[] = [
   { id: 'nav-home', label: 'Home', href: '/', location: 'both', order: 1, visible: true },
   { id: 'nav-shop', label: 'Shop All', href: '/shop', location: 'both', order: 2, visible: true },
-  { id: 'nav-drop001', label: 'Drop 001', href: '/drop-001', location: 'header', order: 3, visible: true, badge: 'HOT' },
-  { id: 'nav-collections', label: 'Collections', href: '/collections', location: 'both', order: 4, visible: true },
-  { id: 'nav-culture', label: 'Our Story', href: '/culture', location: 'both', order: 5, visible: true },
-  { id: 'nav-contact', label: 'Contact', href: '/contact', location: 'both', order: 6, visible: true },
-  { id: 'nav-track', label: 'Track Order', href: '/track-order', location: 'footer', order: 7, visible: true },
-  { id: 'nav-faq', label: 'FAQ', href: '/faq', location: 'footer', order: 8, visible: true },
-  { id: 'nav-shipping', label: 'Shipping', href: '/shipping', location: 'footer', order: 9, visible: true },
-  { id: 'nav-returns', label: 'Returns', href: '/returns', location: 'footer', order: 10, visible: true },
-  { id: 'nav-privacy', label: 'Privacy Policy', href: '/privacy', location: 'footer', order: 11, visible: true },
-  { id: 'nav-terms', label: 'Terms & Conditions', href: '/terms', location: 'footer', order: 12, visible: true }
+  { id: 'nav-apexseries', label: 'Apex Series', href: '/collections/apex-series', location: 'header', order: 3, visible: true, badge: 'NEW' },
+  { id: 'nav-drop001', label: 'Drop 001', href: '/drop-001', location: 'header', order: 4, visible: true },
+  { id: 'nav-collections', label: 'Collections', href: '/collections', location: 'both', order: 5, visible: true },
+  { id: 'nav-culture', label: 'Our Story', href: '/culture', location: 'both', order: 6, visible: true },
+  { id: 'nav-contact', label: 'Contact', href: '/contact', location: 'both', order: 7, visible: true },
+  { id: 'nav-track', label: 'Track Order', href: '/track-order', location: 'footer', order: 8, visible: true },
+  { id: 'nav-faq', label: 'FAQ', href: '/faq', location: 'footer', order: 9, visible: true },
+  { id: 'nav-shipping', label: 'Shipping', href: '/shipping', location: 'footer', order: 10, visible: true },
+  { id: 'nav-returns', label: 'Returns', href: '/returns', location: 'footer', order: 11, visible: true },
+  { id: 'nav-privacy', label: 'Privacy Policy', href: '/privacy', location: 'footer', order: 12, visible: true },
+  { id: 'nav-terms', label: 'Terms & Conditions', href: '/terms', location: 'footer', order: 13, visible: true }
 ];
 
 export const initialPages: ContentPage[] = [
@@ -652,5 +809,55 @@ export const initialMedia: MediaItem[] = [
     altText: 'APEXORA Superbike on wet starting grid with pit straight grandstand',
     category: 'banners',
     uploadedAt: '2026-02-01'
+  },
+  {
+    id: 'med-8',
+    name: 'apexora-apex-series.jpg',
+    url: '/images/apexora-apex-series.jpg',
+    size: '30.2 KB',
+    format: 'JPG',
+    altText: 'APEX SERIES 01 Precision and Control Oversized T-shirt design',
+    category: 'products',
+    uploadedAt: '2026-02-15'
+  },
+  {
+    id: 'med-9',
+    name: 'apexora-apex-line-58.jpg',
+    url: '/images/apexora-apex-line-58.jpg',
+    size: '47.6 KB',
+    format: 'JPG',
+    altText: 'APEX LINE 58 Trajectory Racing Oversized T-shirt with leaning racer',
+    category: 'products',
+    uploadedAt: '2026-02-15'
+  },
+  {
+    id: 'med-10',
+    name: 'apexora-rider-core.jpg',
+    url: '/images/apexora-rider-core.jpg',
+    size: '30.5 KB',
+    format: 'JPG',
+    altText: 'RIDER CORE 03 Paddock Helmet Series Oversized T-shirt',
+    category: 'products',
+    uploadedAt: '2026-02-15'
+  },
+  {
+    id: 'med-11',
+    name: 'apexora-rider-focus.jpg',
+    url: '/images/apexora-rider-focus.jpg',
+    size: '43.1 KB',
+    format: 'JPG',
+    altText: 'RIDER FOCUS Telemetry Crosshair Oversized T-shirt',
+    category: 'products',
+    uploadedAt: '2026-02-15'
+  },
+  {
+    id: 'med-12',
+    name: 'apexora-checker-evolution.jpg',
+    url: '/images/apexora-checker-evolution.jpg',
+    size: '82.5 KB',
+    format: 'JPG',
+    altText: 'CHECKER EVOLUTION 04 3D Puff Print Checkered Oversized T-shirt',
+    category: 'products',
+    uploadedAt: '2026-02-15'
   }
 ];
