@@ -77,11 +77,10 @@ export default function ShopPage() {
           <span className="text-[10px] font-bold text-[#E10600] uppercase tracking-wider mr-1">COLLECTION:</span>
           <button
             onClick={() => setSelectedCollection('ALL')}
-            className={`px-3 py-1 text-xs font-bold tracking-wider uppercase border transition-colors ${
-              selectedCollection === 'ALL'
+            className={`px-3 py-1 text-xs font-bold tracking-wider uppercase border transition-colors ${selectedCollection === 'ALL'
                 ? 'bg-[#E10600] border-[#E10600] text-white shadow-md'
                 : 'bg-[#111111] border-[#292929] text-[#B8B8B8] hover:text-white hover:border-[#E10600]'
-            }`}
+              }`}
           >
             ALL
           </button>
@@ -89,11 +88,10 @@ export default function ShopPage() {
             <button
               key={col.id}
               onClick={() => setSelectedCollection(col.id)}
-              className={`px-3 py-1 text-xs font-bold tracking-wider uppercase border transition-colors ${
-                selectedCollection === col.id
+              className={`px-3 py-1 text-xs font-bold tracking-wider uppercase border transition-colors ${selectedCollection === col.id
                   ? 'bg-[#E10600] border-[#E10600] text-white shadow-md'
                   : 'bg-[#111111] border-[#292929] text-[#B8B8B8] hover:text-white hover:border-[#E10600]'
-              }`}
+                }`}
             >
               {col.id === 'apex-series' ? '★ ' + col.title.split('—')[0].trim() : col.title.split('—')[0].trim()}
             </button>
@@ -109,11 +107,10 @@ export default function ShopPage() {
               <button
                 key={cat}
                 onClick={() => setSelectedCategory(cat)}
-                className={`px-3 py-1.5 text-xs font-bold tracking-wider uppercase border transition-colors ${
-                  selectedCategory === cat
+                className={`px-3 py-1.5 text-xs font-bold tracking-wider uppercase border transition-colors ${selectedCategory === cat
                     ? 'bg-[#E10600] border-[#E10600] text-white shadow-md'
                     : 'bg-[#111111] border-[#292929] text-[#B8B8B8] hover:text-white hover:border-[#E10600]'
-                }`}
+                  }`}
               >
                 {cat}
               </button>
@@ -121,33 +118,33 @@ export default function ShopPage() {
           </div>
 
           {/* Search & Sort Controls */}
-        <div className="flex flex-wrap items-center gap-3">
-          {/* Search input */}
-          <div className="relative flex-1 sm:w-60">
-            <input
-              type="text"
-              value={searchQuery}
-              onChange={e => setSearchQuery(e.target.value)}
-              placeholder="FILTER BY NAME..."
-              className="w-full bg-[#111111] border border-[#292929] text-white text-xs px-3 py-2 pl-8 outline-none uppercase tracking-wider placeholder-[#858585]"
-            />
-            <SearchIcon size={14} className="absolute left-2.5 top-2.5 text-[#858585]" />
-          </div>
+          <div className="flex flex-wrap items-center gap-3">
+            {/* Search input */}
+            <div className="relative flex-1 sm:w-60">
+              <input
+                type="text"
+                value={searchQuery}
+                onChange={e => setSearchQuery(e.target.value)}
+                placeholder="FILTER BY NAME..."
+                className="w-full bg-[#111111] border border-[#292929] text-white text-xs px-3 py-2 pl-8 outline-none uppercase tracking-wider placeholder-[#858585]"
+              />
+              <SearchIcon size={14} className="absolute left-2.5 top-2.5 text-[#858585]" />
+            </div>
 
-          {/* Sort dropdown */}
-          <select
-            value={sortBy}
-            onChange={e => setSortBy(e.target.value)}
-            className="bg-[#111111] border border-[#292929] text-white text-xs px-3 py-2 outline-none uppercase tracking-wider cursor-pointer"
-          >
-            <option value="featured">FEATURED</option>
-            <option value="newest">NEWEST</option>
-            <option value="price-low">PRICE: LOW TO HIGH</option>
-            <option value="price-high">PRICE: HIGH TO LOW</option>
-          </select>
+            {/* Sort dropdown */}
+            <select
+              value={sortBy}
+              onChange={e => setSortBy(e.target.value)}
+              className="bg-[#111111] border border-[#292929] text-white text-xs px-3 py-2 outline-none uppercase tracking-wider cursor-pointer"
+            >
+              <option value="featured">FEATURED</option>
+              <option value="newest">NEWEST</option>
+              <option value="price-low">PRICE: LOW TO HIGH</option>
+              <option value="price-high">PRICE: HIGH TO LOW</option>
+            </select>
+          </div>
         </div>
       </div>
-    </div>
 
       {/* Product Grid */}
       {filteredProducts.length === 0 ? (

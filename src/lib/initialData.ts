@@ -736,6 +736,28 @@ export const initialDiscounts: DiscountCode[] = [
     usageCount: 88,
     active: true,
     description: 'Complimentary shipping code on any order'
+  },
+  {
+    id: 'disc-referral',
+    code: 'RIDER20',
+    type: 'percentage',
+    value: 20,
+    minOrderValue: 0,
+    usageLimit: 10000,
+    usageCount: 0,
+    active: true,
+    description: '20% Instant Referral Discount — Refer a friend to unlock'
+  },
+  {
+    id: 'disc-referral-alt',
+    code: 'REFERRAL20',
+    type: 'percentage',
+    value: 20,
+    minOrderValue: 0,
+    usageLimit: 10000,
+    usageCount: 0,
+    active: true,
+    description: '20% Instant Referral Discount'
   }
 ];
 

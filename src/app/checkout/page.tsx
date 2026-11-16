@@ -14,6 +14,7 @@ import {
   ArrowRightIcon,
   ArrowLeftIcon
 } from '@/components/icons';
+import ReferralBanner from '@/components/ReferralBanner';
 
 const INDIAN_STATES = [
   'Karnataka',
@@ -136,9 +137,9 @@ export default function CheckoutPage() {
   return (
     <div className="py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
       {/* Header on Solid Dark Plate */}
-      <div className="bg-[#0D0F14] border border-[#222733] p-6 sm:p-8 mb-8 flex items-center justify-between shadow-xl">
+      <div className="bg-[#151515] border border-[#292929] p-6 sm:p-8 mb-8 flex items-center justify-between shadow-xl">
         <div>
-          <div className="inline-flex items-center gap-2 bg-[#161A22] border border-[#2B303C] px-3 py-1 rounded-sm text-xs font-bold tracking-[2.5px] text-[#E2E4E9] uppercase mb-2">
+          <div className="inline-flex items-center gap-2 bg-[#111111] border border-[#292929] px-3 py-1 rounded-sm text-xs font-bold tracking-[2.5px] text-white uppercase mb-2">
             <Slashes size={18} className="text-[#E10600]" />
             <span>SECURE CHECKOUT DISPATCH</span>
           </div>
@@ -148,7 +149,7 @@ export default function CheckoutPage() {
         </div>
         <Link
           href="/cart"
-          className="text-xs font-bold text-[#D1D5DB] hover:text-white uppercase tracking-wider hidden sm:flex items-center gap-1.5 bg-[#14171E] border border-[#252A36] px-4 py-2"
+          className="text-xs font-bold text-[#B8B8B8] hover:text-white uppercase tracking-wider hidden sm:flex items-center gap-1.5 bg-[#111111] border border-[#292929] px-4 py-2"
         >
           <ArrowLeftIcon size={12} />
           <span>Edit Bag</span>
@@ -283,18 +284,23 @@ export default function CheckoutPage() {
           </div>
 
           {/* 3. Payment Method */}
-          <div className="bg-[#111418] border border-[#252930] p-6 space-y-4">
-            <h2 className="font-['Barlow_Condensed',sans-serif] font-black italic text-2xl text-white uppercase tracking-wide flex items-center gap-2 border-b border-[#252930] pb-3">
+          <div className="bg-[#151515] border border-[#292929] p-6 space-y-4">
+            <h2 className="font-['Barlow_Condensed',sans-serif] font-black italic text-2xl text-white uppercase tracking-wide flex items-center gap-2 border-b border-[#292929] pb-3">
               <span className="text-[#E10600]">03 /</span> PAYMENT METHOD
             </h2>
+
+            {/* Highlighted 20% Instant Referral Discount when making payment */}
+            <div className="pb-1">
+              <ReferralBanner variant="checkout" />
+            </div>
 
             <div className="space-y-3">
               {/* Razorpay Online */}
               <label
                 className={`p-4 border flex items-start gap-3 cursor-pointer transition-colors ${
                   paymentMethod === 'Razorpay'
-                    ? 'border-[#E10600] bg-[#161922]'
-                    : 'border-[#2B2F38] bg-[#15171C] hover:border-white'
+                    ? 'border-[#E10600] bg-[#111111]'
+                    : 'border-[#292929] bg-[#111111] hover:border-white'
                 }`}
               >
                 <input
@@ -323,8 +329,8 @@ export default function CheckoutPage() {
               <label
                 className={`p-4 border flex items-start gap-3 cursor-pointer transition-colors ${
                   paymentMethod === 'COD'
-                    ? 'border-[#E10600] bg-[#161922]'
-                    : 'border-[#2B2F38] bg-[#15171C] hover:border-white'
+                    ? 'border-[#E10600] bg-[#111111]'
+                    : 'border-[#292929] bg-[#111111] hover:border-white'
                 }`}
               >
                 <input
@@ -338,7 +344,7 @@ export default function CheckoutPage() {
                   <span className="text-xs font-black uppercase tracking-wider text-white block">
                     CASH ON DELIVERY (COD)
                   </span>
-                  <p className="text-[11px] text-[#8E939C] mt-1 leading-relaxed">
+                  <p className="text-[11px] text-[#858585] mt-1 leading-relaxed">
                     Pay in cash or via QR code directly to the courier upon doorstep delivery.
                   </p>
                 </div>
@@ -349,23 +355,28 @@ export default function CheckoutPage() {
 
         {/* Right Column: Order Summary (5 cols) */}
         <div className="lg:col-span-5">
-          <div className="bg-[#111418] border border-[#252930] p-6 space-y-6 sticky top-28">
-            <h2 className="font-['Barlow_Condensed',sans-serif] font-black italic text-2xl text-white uppercase tracking-wider border-b border-[#252930] pb-3">
-              ORDER ITEMS ({cart.length})
-            </h2>
+          <div className="bg-[#151515] border border-[#292929] p-6 space-y-6 sticky top-28 shadow-2xl">
+            <div className="flex items-center justify-between border-b border-[#292929] pb-3">
+              <h2 className="font-['Barlow_Condensed',sans-serif] font-black italic text-2xl text-white uppercase tracking-wider">
+                ORDER ITEMS ({cart.length})
+              </h2>
+              <span className="text-[10px] font-bold text-[#E10600] uppercase tracking-wider">
+                PAYMENT SUMMARY
+              </span>
+            </div>
 
-            <div className="divide-y divide-[#1D2128] max-h-60 overflow-y-auto pr-2">
+            <div className="divide-y divide-[#292929] max-h-60 overflow-y-auto pr-2">
               {cart.map(item => (
                 <div key={item.key} className="py-3 first:pt-0 flex gap-3 items-center justify-between">
                   <div className="flex gap-3 items-center">
-                    <div className="w-12 h-14 bg-[#181B22] border border-[#2B2F38] flex-shrink-0 p-1">
+                    <div className="w-12 h-14 bg-[#111111] border border-[#292929] flex-shrink-0 p-1">
                       <img src={item.image} alt={item.name} className="w-full h-full object-contain" />
                     </div>
                     <div>
                       <h4 className="font-['Barlow_Condensed',sans-serif] font-bold text-base text-white uppercase leading-tight">
                         {item.name}
                       </h4>
-                      <span className="text-[10px] text-[#8E939C] uppercase block">
+                      <span className="text-[10px] text-[#858585] uppercase block">
                         SIZE {item.size} × {item.quantity}
                       </span>
                     </div>
@@ -378,14 +389,18 @@ export default function CheckoutPage() {
             </div>
 
             {/* Calculations */}
-            <div className="space-y-2 text-xs uppercase tracking-wider text-[#8E939C] border-t border-[#1C1F26] pt-4">
+            <div className="space-y-2 text-xs uppercase tracking-wider text-[#858585] border-t border-[#292929] pt-4">
               <div className="flex justify-between">
                 <span>Subtotal</span>
                 <span className="text-white font-bold">₹{cartSubtotal.toLocaleString('en-IN')}</span>
               </div>
               {discountAmount > 0 && (
-                <div className="flex justify-between text-[#E10600]">
-                  <span>Discount ({appliedDiscount?.code})</span>
+                <div className="flex justify-between text-[#E10600] font-bold">
+                  <span>
+                    {appliedDiscount?.code === 'RIDER20' || appliedDiscount?.code === 'REFERRAL20'
+                      ? '⚡ 20% Referral Discount'
+                      : `Discount (${appliedDiscount?.code})`}
+                  </span>
                   <span>-₹{discountAmount.toLocaleString('en-IN')}</span>
                 </div>
               )}
@@ -395,7 +410,7 @@ export default function CheckoutPage() {
                   {shippingFee === 0 ? <span className="text-emerald-400">FREE</span> : `₹${shippingFee}`}
                 </span>
               </div>
-              <div className="flex justify-between text-xl font-black text-white pt-4 border-t border-[#252930]">
+              <div className="flex justify-between text-xl font-black text-white pt-4 border-t border-[#292929]">
                 <span className="font-['Barlow_Condensed',sans-serif] italic tracking-wide">TOTAL PAYABLE</span>
                 <span className="font-['Barlow_Condensed',sans-serif] text-3xl text-[#E10600]">
                   ₹{cartTotal.toLocaleString('en-IN')}

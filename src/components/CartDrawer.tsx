@@ -5,6 +5,7 @@ import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { useStore } from '@/lib/store';
 import { CloseIcon, PlusIcon, MinusIcon, TrashIcon, TagIcon, ArrowRightIcon, TruckIcon, Slashes } from './icons';
+import ReferralBanner from './ReferralBanner';
 
 export default function CartDrawer() {
   const router = useRouter();
@@ -102,6 +103,13 @@ export default function CartDrawer() {
               />
             </div>
           </div>
+
+          {/* Highlighted 20% Instant Referral Discount Offer */}
+          {cart.length > 0 && (
+            <div className="p-4 bg-[#0A0A0C] border-b border-[#292929]">
+              <ReferralBanner variant="drawer" />
+            </div>
+          )}
 
           {/* Cart Items List */}
           <div className="flex-1 overflow-y-auto p-6 space-y-4 divide-y divide-[#292929] bg-[#111111]">

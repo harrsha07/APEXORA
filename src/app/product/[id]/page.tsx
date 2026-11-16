@@ -300,6 +300,19 @@ export default function ProductDetailPage() {
                 >
                   BUY NOW (INSTANT CHECKOUT) ↗
                 </button>
+
+                {/* 20% Instant Referral Discount Notification */}
+                <div className="bg-[#151515] border border-[#E10600]/40 p-2.5 flex items-center justify-between text-xs mt-2">
+                  <div className="flex items-center gap-2">
+                    <span className="w-1.5 h-1.5 rounded-full bg-[#E10600] animate-ping" />
+                    <span className="text-[11px] font-bold text-white uppercase tracking-wider">
+                      REFER A FRIEND &amp; GET <span className="text-[#E10600]">20% INSTANT DISCOUNT</span>
+                    </span>
+                  </div>
+                  <span className="text-[10px] text-[#858585] uppercase tracking-wider font-semibold hidden sm:inline">
+                    Claim in Bag / Payment
+                  </span>
+                </div>
               </div>
             </div>
 

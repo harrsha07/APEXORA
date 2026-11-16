@@ -15,6 +15,7 @@ import {
   TruckIcon,
   ShieldCheckIcon
 } from '@/components/icons';
+import ReferralBanner from '@/components/ReferralBanner';
 
 export default function CartPage() {
   const router = useRouter();
@@ -116,6 +117,11 @@ export default function CartPage() {
             style={{ width: `${progressPercent}%` }}
           />
         </div>
+      </div>
+
+      {/* Highlighted 20% Instant Referral Discount Offer */}
+      <div className="mb-8">
+        <ReferralBanner variant="page" />
       </div>
 
       {/* Layout Grid */}

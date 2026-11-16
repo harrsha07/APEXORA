@@ -72,6 +72,10 @@ type StoreContextType = {
   applyCoupon: (code: string) => { success: boolean; message: string };
   removeCoupon: () => void;
 
+  // Referral Discount System
+  hasReferred: boolean;
+  unlockReferralDiscount: () => DiscountCode;
+
   // Modals & UI states
   cartDrawerOpen: boolean;
   setCartDrawerOpen: (open: boolean) => void;
@@ -95,7 +99,7 @@ type StoreContextType = {
   // Direct mutations (for orders placed by customers or instant admin updates)
   createOrder: (orderData: Omit<Order, 'id' | 'orderNumber' | 'createdAt'>) => Promise<Order>;
   updateOrderStatus: (orderId: string, status: Order['status'], tracking?: { trackingNumber?: string; carrier?: string }) => void;
-  
+
   // Products CRUD
   saveProduct: (product: Product) => void;
   deleteProduct: (productId: string) => void;
@@ -163,7 +167,8 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
   const [isDraftMode, setIsDraftMode] = useState<boolean>(false);
   const [cart, setCart] = useState<CartItem[]>([]);
   const [appliedDiscount, setAppliedDiscount] = useState<DiscountCode | null>(null);
-  
+  const [hasReferred, setHasReferred] = useState<boolean>(false);
+
   // UI states
   const [cartDrawerOpen, setCartDrawerOpen] = useState(false);
   const [searchModalOpen, setSearchModalOpen] = useState(false);
@@ -209,13 +214,21 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
           }
         });
 
+        const mergedDiscounts = [...(parsed.discounts || [])];
+        initialDiscounts.forEach(idisc => {
+          if (!mergedDiscounts.some(d => d.code === idisc.code)) {
+            mergedDiscounts.push(idisc);
+          }
+        });
+
         return {
           ...initialStoreState,
           ...parsed,
           products: mergedProducts,
           collections: mergedCollections,
           navigation: mergedNav,
-          media: mergedMedia
+          media: mergedMedia,
+          discounts: mergedDiscounts
         };
       };
 
@@ -235,6 +248,42 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
       const savedCart = localStorage.getItem(STORAGE_KEY_CART);
       if (savedCart) {
         setCart(JSON.parse(savedCart));
+      }
+
+      // Check referral state and stored discount
+      const savedReferred = localStorage.getItem('apexora_referred_v2');
+      if (savedReferred === 'true') {
+        setHasReferred(true);
+      }
+      const savedAppliedDiscount = localStorage.getItem('apexora_applied_discount_v2');
+      if (savedAppliedDiscount) {
+        try {
+          setAppliedDiscount(JSON.parse(savedAppliedDiscount));
+        } catch (e) {}
+      }
+
+      // Detect referral query param ?ref=... or ?referral=...
+      if (typeof window !== 'undefined') {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('ref') || urlParams.get('referral')) {
+          setHasReferred(true);
+          const referralDiscount: DiscountCode = {
+            id: 'disc-referral',
+            code: 'RIDER20',
+            type: 'percentage',
+            value: 20,
+            minOrderValue: 0,
+            usageLimit: 10000,
+            usageCount: 1,
+            active: true,
+            description: '20% Instant Referral Discount — Referral Active'
+          };
+          setAppliedDiscount(referralDiscount);
+          try {
+            localStorage.setItem('apexora_referred_v2', 'true');
+            localStorage.setItem('apexora_applied_discount_v2', JSON.stringify(referralDiscount));
+          } catch (e) {}
+        }
       }
     } catch (e) {
       console.warn('Error loading local state:', e);
@@ -307,7 +356,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
       const next = { ...prev, [key]: updater(prev[key]) };
       try {
         localStorage.setItem(STORAGE_KEY_DRAFT, JSON.stringify(next));
-      } catch (e) {}
+      } catch (e) { }
       return next;
     });
   }, []);
@@ -331,7 +380,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
     try {
       localStorage.setItem(STORAGE_KEY_PUBLISHED, JSON.stringify(nextState));
       localStorage.setItem(STORAGE_KEY_DRAFT, JSON.stringify(nextState));
-    } catch (e) {}
+    } catch (e) { }
 
     // Also sync to Supabase if configured
     const supabase = getSupabase();
@@ -358,7 +407,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
     setDraftState(publishedState);
     try {
       localStorage.setItem(STORAGE_KEY_DRAFT, JSON.stringify(publishedState));
-    } catch (e) {}
+    } catch (e) { }
     showToast('Draft changes discarded. Reverted to live version.');
   }, [publishedState, showToast]);
 
@@ -369,7 +418,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
     try {
       localStorage.setItem(STORAGE_KEY_PUBLISHED, JSON.stringify(initialStoreState));
       localStorage.setItem(STORAGE_KEY_DRAFT, JSON.stringify(initialStoreState));
-    } catch (e) {}
+    } catch (e) { }
     showToast('Restored original APEXORA default settings.');
   }, [showToast]);
 
@@ -452,12 +501,40 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
       };
     }
     setAppliedDiscount(found);
+    try {
+      localStorage.setItem('apexora_applied_discount_v2', JSON.stringify(found));
+    } catch (e) {}
     return { success: true, message: `Coupon ${found.code} applied successfully!` };
   }, [activeState.discounts, cartSubtotal]);
 
   const removeCoupon = useCallback(() => {
     setAppliedDiscount(null);
+    try {
+      localStorage.removeItem('apexora_applied_discount_v2');
+    } catch (e) {}
   }, []);
+
+  const unlockReferralDiscount = useCallback((): DiscountCode => {
+    const referralDiscount: DiscountCode = {
+      id: 'disc-referral',
+      code: 'RIDER20',
+      type: 'percentage',
+      value: 20,
+      minOrderValue: 0,
+      usageLimit: 10000,
+      usageCount: 1,
+      active: true,
+      description: '20% Instant Referral Discount — Referral Active'
+    };
+    setAppliedDiscount(referralDiscount);
+    setHasReferred(true);
+    try {
+      localStorage.setItem('apexora_referred_v2', 'true');
+      localStorage.setItem('apexora_applied_discount_v2', JSON.stringify(referralDiscount));
+    } catch (e) {}
+    showToast('⚡ 20% Instant Referral Discount Unlocked & Applied!');
+    return referralDiscount;
+  }, [showToast]);
 
   // Customer order creation
   const createOrder = useCallback(async (orderData: Omit<Order, 'id' | 'orderNumber' | 'createdAt'>): Promise<Order> => {
@@ -477,7 +554,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
       };
       try {
         localStorage.setItem(STORAGE_KEY_PUBLISHED, JSON.stringify(next));
-      } catch (e) {}
+      } catch (e) { }
       return next;
     });
 
@@ -488,7 +565,7 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
       };
       try {
         localStorage.setItem(STORAGE_KEY_DRAFT, JSON.stringify(next));
-      } catch (e) {}
+      } catch (e) { }
       return next;
     });
 
@@ -533,11 +610,11 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
       orders.map(o =>
         o.id === orderId
           ? {
-              ...o,
-              status,
-              ...(tracking?.trackingNumber ? { trackingNumber: tracking.trackingNumber } : {}),
-              ...(tracking?.carrier ? { carrier: tracking.carrier } : {})
-            }
+            ...o,
+            status,
+            ...(tracking?.trackingNumber ? { trackingNumber: tracking.trackingNumber } : {}),
+            ...(tracking?.carrier ? { carrier: tracking.carrier } : {})
+          }
           : o
       );
     updateDraft('orders', updater);
@@ -711,6 +788,8 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
     clearCart,
     applyCoupon,
     removeCoupon,
+    hasReferred,
+    unlockReferralDiscount,
 
     cartDrawerOpen,
     setCartDrawerOpen,
